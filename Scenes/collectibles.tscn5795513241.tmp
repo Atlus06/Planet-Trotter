@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://doi2h56o46e1t"]
+
+[ext_resource type="Script" uid="uid://v33i50fafvp5" path="res://Scenes/collectibles.gd" id="1_316ip"]
+[ext_resource type="Texture2D" uid="uid://qdl4mhpxnvab" path="res://Assets/icon.svg" id="1_oknvs"]
+[ext_resource type="Script" uid="uid://d3qxuppgsxjyy" path="res://Scripts/CanCollectComponent.gd" id="2_gb2wt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gb2wt"]
+radius = 74.431175
+
+[node name="Collectibles" type="Area2D" unique_id=1241773531]
+script = ExtResource("1_316ip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=788459219]
+shape = SubResource("CircleShape2D_gb2wt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=309052708]
+texture = ExtResource("1_oknvs")
+
+[node name="Can_Collect_Component" type="Node" parent="." unique_id=1292617766]
+script = ExtResource("2_gb2wt")
+max_collectable_amt = 13
+metadata/_custom_type_script = "uid://d3qxuppgsxjyy"
+
+[connection signal="body_entered" from="." to="Can_Collect_Component" method="_on_collectibles_body_entered"]

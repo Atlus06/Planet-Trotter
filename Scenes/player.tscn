@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bbwhmafuk1gn0" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://qdl4mhpxnvab" path="res://Assets/icon.svg" id="2_6t5aa"]
 [ext_resource type="Script" uid="uid://c8ar433hsh7mt" path="res://Scripts/InputComponent.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://d1710yeed7ers" path="res://Scripts/GravityComponent.gd" id="5_fkybt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88kja"]
 size = Vector2(127, 127)
@@ -20,6 +21,16 @@ texture = ExtResource("2_6t5aa")
 
 [node name="CameraAnchor" type="Node" parent="." unique_id=253682457]
 
+[node name="DashTimer" type="Timer" parent="." unique_id=2069224292]
+wait_time = 0.2
+
+[node name="WallJump" type="Timer" parent="." unique_id=1170025154]
+wait_time = 0.22
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=763303121]
+offset = Vector2(0, -75)
+zoom = Vector2(0.75, 0.75)
+
 [node name="Input_Component" type="Node" parent="." unique_id=190985975]
 unique_name_in_owner = true
 script = ExtResource("3_6t5aa")
@@ -29,14 +40,13 @@ metadata/_custom_type_script = "uid://c8ar433hsh7mt"
 unique_name_in_owner = true
 script = ExtResource("1_6t5aa")
 body = NodePath("..")
-dash_velo = -1000.0
+dash_velo = -1200.0
 metadata/_custom_type_script = "uid://bm3g6uero38h7"
 
-[node name="DashTimer" type="Timer" parent="." unique_id=2069224292]
-wait_time = 0.2
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=763303121]
-offset = Vector2(0, -75)
-zoom = Vector2(0.75, 0.75)
+[node name="Gravity_Component" type="Node" parent="." unique_id=1236906400]
+unique_name_in_owner = true
+script = ExtResource("5_fkybt")
+metadata/_custom_type_script = "uid://d1710yeed7ers"
 
 [connection signal="timeout" from="DashTimer" to="Movement_Component" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="WallJump" to="Movement_Component" method="_on_wall_jump_timeout"]

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cr4mkpaurcyv0" path="res://Scenes/floor.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://c1k0kbu1wwrm6" path="res://Scenes/wall.tscn" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://d2ofgkmuhelmq" path="res://Scenes/platform.tscn" id="4_kry3j"]
+[ext_resource type="PackedScene" uid="uid://doi2h56o46e1t" path="res://Scenes/collectibles.tscn" id="5_kry3j"]
 
 [node name="Main" type="Node2D" unique_id=1249252770]
 
@@ -40,13 +41,48 @@ position = Vector2(-2890, 638)
 scale = Vector2(2.62, 2.62)
 script = null
 
-[node name="Wall14" parent="Walls" unique_id=267560543 instance=ExtResource("3_jjvhh")]
-position = Vector2(4433.0005, 659.00006)
+[node name="Wall15" parent="Walls" unique_id=1423952894 instance=ExtResource("3_jjvhh")]
+position = Vector2(3943, 659.99994)
 scale = Vector2(2.62, 2.62)
 script = null
 
-[node name="Wall15" parent="Walls" unique_id=1423952894 instance=ExtResource("3_jjvhh")]
-position = Vector2(3943, 659.99994)
+[node name="Wall18" parent="Walls" unique_id=1137091067 instance=ExtResource("3_jjvhh")]
+position = Vector2(4919.0005, 659)
+scale = Vector2(2.62, 2.62)
+script = null
+
+[node name="Wall19" parent="Walls" unique_id=1300325340 instance=ExtResource("3_jjvhh")]
+position = Vector2(4433.0005, 300)
+scale = Vector2(2.62, 2.62)
+script = null
+
+[node name="Wall20" parent="Walls" unique_id=1398907808 instance=ExtResource("3_jjvhh")]
+position = Vector2(4919.0005, 300)
+scale = Vector2(2.62, 2.62)
+script = null
+
+[node name="Wall21" parent="Walls" unique_id=955625308 instance=ExtResource("3_jjvhh")]
+position = Vector2(4436, -137.99998)
+scale = Vector2(2.62, 2.62)
+script = null
+
+[node name="Wall22" parent="Walls" unique_id=1125360032 instance=ExtResource("3_jjvhh")]
+position = Vector2(4922, -137.99998)
+scale = Vector2(2.62, 2.62)
+script = null
+
+[node name="Wall23" parent="Walls" unique_id=176342248 instance=ExtResource("3_jjvhh")]
+position = Vector2(4438, -565)
+scale = Vector2(2.62, 2.62)
+script = null
+
+[node name="Wall24" parent="Walls" unique_id=1718332218 instance=ExtResource("3_jjvhh")]
+position = Vector2(4924, -565)
+scale = Vector2(2.62, 2.62)
+script = null
+
+[node name="Wall26" parent="Walls" unique_id=1957165444 instance=ExtResource("3_jjvhh")]
+position = Vector2(4924, -988)
 scale = Vector2(2.62, 2.62)
 script = null
 
@@ -277,3 +313,57 @@ scale = Vector2(0.7, 0.7)
 [node name="Platform43" parent="Platforms" unique_id=1949862147 instance=ExtResource("4_kry3j")]
 position = Vector2(-1657, -2052)
 scale = Vector2(0.7, 0.7)
+
+[node name="Collectibles" type="Node" parent="." unique_id=1610890794]
+
+[node name="Collectibles" parent="Collectibles" unique_id=1241773531 instance=ExtResource("5_kry3j")]
+position = Vector2(833, 583)
+scale = Vector2(0.6, 0.6)
+
+[node name="Collectibles2" parent="Collectibles" unique_id=439985952 instance=ExtResource("5_kry3j")]
+position = Vector2(560, -43)
+scale = Vector2(0.6, 0.6)
+
+[node name="Collectibles3" parent="Collectibles" unique_id=1208381863 instance=ExtResource("5_kry3j")]
+position = Vector2(-263, -608)
+scale = Vector2(0.6, 0.6)
+
+[node name="Collectibles4" parent="Collectibles" unique_id=1645970090 instance=ExtResource("5_kry3j")]
+position = Vector2(-1913, -158)
+scale = Vector2(0.6, 0.6)
+
+[node name="Collectibles5" parent="Collectibles" unique_id=688598975 instance=ExtResource("5_kry3j")]
+position = Vector2(-2894, 109)
+scale = Vector2(0.6, 0.6)
+
+[node name="Collectibles6" parent="Collectibles" unique_id=118393627 instance=ExtResource("5_kry3j")]
+position = Vector2(830, -1330)
+scale = Vector2(0.6, 0.6)
+
+[node name="Collectibles7" parent="Collectibles" unique_id=1641799152 instance=ExtResource("5_kry3j")]
+position = Vector2(335, -2086)
+scale = Vector2(0.6, 0.6)
+
+[node name="Collectibles8" parent="Collectibles" unique_id=186563098 instance=ExtResource("5_kry3j")]
+position = Vector2(-1664, -2144)
+scale = Vector2(0.6, 0.6)
+
+[node name="Collectibles9" parent="Collectibles" unique_id=1438898531 instance=ExtResource("5_kry3j")]
+position = Vector2(4630, -1230)
+scale = Vector2(0.6, 0.6)
+
+[node name="Collectibles10" parent="Collectibles" unique_id=1275387970 instance=ExtResource("5_kry3j")]
+position = Vector2(3421, -817)
+scale = Vector2(0.6, 0.6)
+
+[node name="Collectibles11" parent="Collectibles" unique_id=884385376 instance=ExtResource("5_kry3j")]
+position = Vector2(2367, -146)
+scale = Vector2(0.6, 0.6)
+
+[node name="Collectibles12" parent="Collectibles" unique_id=883602913 instance=ExtResource("5_kry3j")]
+position = Vector2(3090, 510)
+scale = Vector2(0.6, 0.6)
+
+[node name="Collectibles13" parent="Collectibles" unique_id=1425739525 instance=ExtResource("5_kry3j")]
+position = Vector2(4354, 534)
+scale = Vector2(0.6, 0.6)
