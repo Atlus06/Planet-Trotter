@@ -1,12 +1,20 @@
 [gd_scene format=3 uid="uid://drc4lugns5bhe"]
 
+[ext_resource type="Script" uid="uid://di6rtpqul507p" path="res://Scripts/game_manager.gd" id="1_344ge"]
 [ext_resource type="PackedScene" uid="uid://cf61t4wy32qm4" path="res://Scenes/player.tscn" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://hjl1eqc8msh5" path="res://Scenes/collectable_component.tscn" id="2_6bp64"]
 [ext_resource type="PackedScene" uid="uid://cr4mkpaurcyv0" path="res://Scenes/floor.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://c1k0kbu1wwrm6" path="res://Scenes/wall.tscn" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://d2ofgkmuhelmq" path="res://Scenes/platform.tscn" id="4_kry3j"]
 [ext_resource type="PackedScene" uid="uid://doi2h56o46e1t" path="res://Scenes/collectibles.tscn" id="5_kry3j"]
 
 [node name="Main" type="Node2D" unique_id=1249252770]
+
+[node name="GameManager" type="Node" parent="." unique_id=952550901]
+unique_name_in_owner = true
+script = ExtResource("1_344ge")
+
+[node name="CollectableComponent" parent="GameManager" unique_id=481696626 instance=ExtResource("2_6bp64")]
 
 [node name="Floor" parent="." unique_id=1638395231 instance=ExtResource("2_8gbba")]
 position = Vector2(559, 650)

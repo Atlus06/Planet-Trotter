@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var input_component: Input_Component = $Input_Component
 @onready var movement_component: Movement_Component = %Movement_Component
 @onready var gravity_component: Gravity_Component = %Gravity_Component
+@onready var camera_component: Camera_Component = %Camera_Component
 
 func _physics_process(delta: float) -> void:
 	
@@ -20,4 +21,7 @@ func _physics_process(delta: float) -> void:
 	gravity_component.player = movement_component.body
 	gravity_component.update(delta)
 	
+	#camera movement
+	camera_component.cam_direction = input_component.camera_look
+	camera_component.update()
 	
