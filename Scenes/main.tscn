@@ -4,9 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://cf61t4wy32qm4" path="res://Scenes/player.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://hjl1eqc8msh5" path="res://Scenes/collectable_component.tscn" id="2_6bp64"]
 [ext_resource type="PackedScene" uid="uid://cr4mkpaurcyv0" path="res://Scenes/floor.tscn" id="2_8gbba"]
+[ext_resource type="Script" uid="uid://dpmqxbbv8elr0" path="res://Scenes/score_label.gd" id="3_344ge"]
 [ext_resource type="PackedScene" uid="uid://c1k0kbu1wwrm6" path="res://Scenes/wall.tscn" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://d2ofgkmuhelmq" path="res://Scenes/platform.tscn" id="4_kry3j"]
 [ext_resource type="PackedScene" uid="uid://doi2h56o46e1t" path="res://Scenes/collectibles.tscn" id="5_kry3j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_344ge"]
+font_size = 48
 
 [node name="Main" type="Node2D" unique_id=1249252770]
 
@@ -22,6 +26,15 @@ position = Vector2(559, 650)
 [node name="Player" parent="." unique_id=1113507717 instance=ExtResource("1_bo1nx")]
 position = Vector2(519, 566)
 scale = Vector2(0.45, 0.45)
+
+[node name="ScoreLabel" type="Label" parent="Player" unique_id=1430221783]
+offset_left = -300.0
+offset_top = -182.22223
+offset_right = 288.0
+offset_bottom = -115.22223
+text = "Resources Collected: 0 / 0"
+label_settings = SubResource("LabelSettings_344ge")
+script = ExtResource("3_344ge")
 
 [node name="Walls" type="Node" parent="." unique_id=226439937]
 

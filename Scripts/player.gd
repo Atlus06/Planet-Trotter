@@ -23,5 +23,10 @@ func _physics_process(delta: float) -> void:
 	
 	#camera movement
 	camera_component.cam_direction = input_component.camera_look
+	camera_component.cam_want_zoom = input_component.cam_zoom
 	camera_component.update()
+	
+	
+	
+	
 	
