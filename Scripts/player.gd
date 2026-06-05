@@ -12,9 +12,11 @@ func _physics_process(delta: float) -> void:
 	
 	#Handles movement
 	movement_component.direction = input_component.move_direction
+	movement_component.Ydirection = input_component.aim_direction
 	movement_component.jumping = input_component.jump_pressed
 	movement_component.wants_dash = input_component.dash_pressed
-	movement_component.jump_held = input_component.up_held
+	movement_component.wants_slide = input_component.slide_pressed
+	movement_component.handle_slide(delta)
 	movement_component.update(delta)
 	
 	#applies gravity
@@ -25,8 +27,6 @@ func _physics_process(delta: float) -> void:
 	camera_component.cam_direction = input_component.camera_look
 	camera_component.cam_want_zoom = input_component.cam_zoom
 	camera_component.update()
-	
-	
 	
 	
 	

@@ -26,10 +26,13 @@ zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
 
 [node name="DashTimer" type="Timer" parent="." unique_id=2069224292]
-wait_time = 0.2
+wait_time = 0.1
 
 [node name="WallJump" type="Timer" parent="." unique_id=1170025154]
 wait_time = 0.22
+
+[node name="DashCooldown" type="Timer" parent="." unique_id=1726882952]
+wait_time = 1.5
 
 [node name="Input_Component" type="Node" parent="." unique_id=190985975]
 unique_name_in_owner = true
@@ -40,7 +43,6 @@ metadata/_custom_type_script = "uid://c8ar433hsh7mt"
 unique_name_in_owner = true
 script = ExtResource("1_6t5aa")
 body = NodePath("..")
-dash_velo = -1200.0
 metadata/_custom_type_script = "uid://bm3g6uero38h7"
 
 [node name="Gravity_Component" type="Node" parent="." unique_id=1236906400]
@@ -64,3 +66,4 @@ metadata/_custom_type_script = "uid://cvew43pwirayn"
 
 [connection signal="timeout" from="DashTimer" to="Movement_Component" method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="WallJump" to="Movement_Component" method="_on_wall_jump_timeout"]
+[connection signal="timeout" from="DashCooldown" to="Movement_Component" method="_on_dash_cooldown_timeout"]
