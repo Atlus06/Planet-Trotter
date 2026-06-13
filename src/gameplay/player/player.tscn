@@ -1,24 +1,25 @@
 [gd_scene format=3 uid="uid://cf61t4wy32qm4"]
 
-[ext_resource type="Script" uid="uid://bm3g6uero38h7" path="res://Scripts/MovementComponent.gd" id="1_6t5aa"]
-[ext_resource type="Script" uid="uid://bbwhmafuk1gn0" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://qdl4mhpxnvab" path="res://Assets/icon.svg" id="2_6t5aa"]
-[ext_resource type="Script" uid="uid://c8ar433hsh7mt" path="res://Scripts/InputComponent.gd" id="3_6t5aa"]
-[ext_resource type="Script" uid="uid://d1710yeed7ers" path="res://Scripts/GravityComponent.gd" id="5_fkybt"]
-[ext_resource type="Script" uid="uid://cvew43pwirayn" path="res://Scripts/camera_component.gd" id="6_x3wgy"]
+[ext_resource type="Script" uid="uid://bm3g6uero38h7" path="res://src/components/MovementComponent.gd" id="1_6t5aa"]
+[ext_resource type="Script" uid="uid://bbwhmafuk1gn0" path="res://src/gameplay/player/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://2kr4botgy2gy" path="res://Assets/Screenshot_2026-06-12_172035.png" id="2_dxsvo"]
+[ext_resource type="Script" uid="uid://c8ar433hsh7mt" path="res://src/components/InputComponent.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://d1710yeed7ers" path="res://src/components/GravityComponent.gd" id="5_fkybt"]
+[ext_resource type="Script" uid="uid://cvew43pwirayn" path="res://src/components/camera_component.gd" id="6_x3wgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88kja"]
-size = Vector2(127, 127)
+size = Vector2(294, 614)
 
 [node name="Player" type="CharacterBody2D" unique_id=1113507717]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_cvnsp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=744712605]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_88kja")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1227844510]
-texture = ExtResource("2_6t5aa")
+texture = ExtResource("2_dxsvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=744712605]
+position = Vector2(-21, 67)
+shape = SubResource("RectangleShape2D_88kja")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=763303121]
 offset = Vector2(0, -75)
@@ -32,7 +33,10 @@ wait_time = 0.1
 wait_time = 0.22
 
 [node name="DashCooldown" type="Timer" parent="." unique_id=1726882952]
-wait_time = 1.5
+wait_time = 1.1
+
+[node name="CoyoteTimer" type="Timer" parent="." unique_id=56991568]
+wait_time = 0.2
 
 [node name="Input_Component" type="Node" parent="." unique_id=190985975]
 unique_name_in_owner = true

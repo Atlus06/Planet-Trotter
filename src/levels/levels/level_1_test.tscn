@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://n8mlxlm6rc5c"]
+
+[ext_resource type="PackedScene" uid="uid://cr4mkpaurcyv0" path="res://src/levels/level_components/floor.tscn" id="1_mwsbo"]
+
+[node name="Level1_Test" type="Node2D" unique_id=661084142]
+
+[node name="Floor" parent="." unique_id=1638395231 instance=ExtResource("1_mwsbo")]
+position = Vector2(588, 650)

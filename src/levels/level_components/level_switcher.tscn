@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://euo5evp86ctc"]
+
+[ext_resource type="Script" uid="uid://bspdc0h6toqed" path="res://src/levels/level_components/level_switcher.gd" id="1_ukmjr"]
+
+[node name="LevelSwitcher_component" type="Area2D" unique_id=326202995]
+script = ExtResource("1_ukmjr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

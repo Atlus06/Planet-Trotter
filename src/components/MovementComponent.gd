@@ -2,6 +2,7 @@ class_name Movement_Component extends Node
 @onready var dash_timer: Timer = $"../DashTimer"
 @onready var wall_jump: Timer = $"../WallJump"
 @onready var dash_cooldown: Timer = $"../DashCooldown"
+@onready var coyote_timer: Timer = $"../CoyoteTimer"
 
 @export var body: CharacterBody2D
 @export var speed := 500.0
@@ -10,6 +11,7 @@ class_name Movement_Component extends Node
 @export var dash_velo := -1500.0
 
 var direction: float
+var was_on_floor := false
 
 var jumping := false
 var Ydirection: float
@@ -39,6 +41,7 @@ func update(delta: float) -> void:
 		body.move_and_slide()
 		return
 	
+	
 	# movement
 	body.velocity.x = direction * speed
 	
@@ -47,13 +50,23 @@ func update(delta: float) -> void:
 	if body.is_on_floor() or body.is_on_wall():
 		CanJump = true
 		CanDash = true
+		was_on_floor = true
 	
 	#jump
-	if jumping and body.is_on_floor():
-		body.velocity.y = jump_velo
-	elif jumping and CanJump == true:
-		body.velocity.y = jump_velo
-		CanJump = false
+	if jumping == true:
+		if body.is_on_floor() or not coyote_timer.is_stopped():
+			body.velocity.y = jump_velo
+			CanJump = false
+			coyote_timer.stop()
+		elif jumping and CanJump == true:
+			body.velocity.y = jump_velo
+			CanJump = false
+	
+	if was_on_floor and coyote_timer.is_stopped():
+		coyote_timer.start()
+		was_on_floor = false
+	
+	
 		
 		
 	#dash

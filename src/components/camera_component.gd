@@ -19,4 +19,4 @@ func update() -> void:
 	if cam_want_zoom == true:
 		camera.zoom = cam_zoom
 	elif cam_want_zoom == false:
-		camera.zoom = Vector2(0.75,0.75)
+		camera.zoom = Vector2(0.8,0.8)

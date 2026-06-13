@@ -1,9 +1,10 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @onready var input_component: Input_Component = $Input_Component
 @onready var movement_component: Movement_Component = %Movement_Component
 @onready var gravity_component: Gravity_Component = %Gravity_Component
 @onready var camera_component: Camera_Component = %Camera_Component
+
 
 func _physics_process(delta: float) -> void:
 	
