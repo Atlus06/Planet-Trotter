@@ -1,8 +1,64 @@
 [gd_scene format=3 uid="uid://n8mlxlm6rc5c"]
 
 [ext_resource type="PackedScene" uid="uid://cr4mkpaurcyv0" path="res://src/levels/level_components/floor.tscn" id="1_mwsbo"]
+[ext_resource type="PackedScene" uid="uid://euo5evp86ctc" path="res://src/levels/level_components/level switcher/level_switcher.tscn" id="2_vyunw"]
+[ext_resource type="Script" uid="uid://3qpmovyfqk0k" path="res://src/levels/level_components/level switcher/level_switcher_lvl2.gd" id="3_qmyir"]
+[ext_resource type="Script" uid="uid://d1lh5vem7qgqx" path="res://src/levels/level_components/level switcher/level_switcher_back2start.gd" id="4_gyw3p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyunw"]
+size = Vector2(173, 230)
 
 [node name="Level1_Test" type="Node2D" unique_id=661084142]
 
+[node name="Label" type="Label" parent="." unique_id=1982247816]
+offset_left = 421.0
+offset_top = 156.0
+offset_right = 682.0
+offset_bottom = 263.0
+theme_override_font_sizes/font_size = 78
+text = "Level 1"
+metadata/_edit_use_anchors_ = true
+
 [node name="Floor" parent="." unique_id=1638395231 instance=ExtResource("1_mwsbo")]
-position = Vector2(588, 650)
+position = Vector2(585, 647)
+
+[node name="LevelSwitch" type="Node" parent="." unique_id=1888275976]
+
+[node name="LevelSwitcher_component" parent="LevelSwitch" unique_id=326202995 instance=ExtResource("2_vyunw")]
+position = Vector2(232, 416)
+script = ExtResource("3_qmyir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelSwitch/LevelSwitcher_component" unique_id=563553997]
+position = Vector2(78.5, 117)
+shape = SubResource("RectangleShape2D_vyunw")
+
+[node name="Label" type="Label" parent="LevelSwitch/LevelSwitcher_component" unique_id=271096571]
+offset_right = 158.0
+offset_bottom = 237.0
+theme_override_font_sizes/font_size = 56
+text = "TO
+NEXT
+LEVEL"
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelSwitcher_component2" parent="LevelSwitch" unique_id=377270517 instance=ExtResource("2_vyunw")]
+position = Vector2(826, 422)
+script = ExtResource("4_gyw3p")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelSwitch/LevelSwitcher_component2" unique_id=297582580]
+position = Vector2(78.5, 108)
+shape = SubResource("RectangleShape2D_vyunw")
+
+[node name="Label2" type="Label" parent="LevelSwitch/LevelSwitcher_component2" unique_id=1251710181]
+offset_top = -9.0
+offset_right = 158.0
+offset_bottom = 228.0
+theme_override_font_sizes/font_size = 56
+text = "TO
+START
+LEVEL"
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerSpawn" type="Node" parent="." unique_id=156468546]

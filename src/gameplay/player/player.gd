@@ -4,6 +4,7 @@ class_name Player extends CharacterBody2D
 @onready var movement_component: Movement_Component = %Movement_Component
 @onready var gravity_component: Gravity_Component = %Gravity_Component
 @onready var camera_component: Camera_Component = %Camera_Component
+@onready var health_component: Health_Component = %Health_Component
 
 
 func _physics_process(delta: float) -> void:
@@ -17,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	movement_component.jumping = input_component.jump_pressed
 	movement_component.wants_dash = input_component.dash_pressed
 	movement_component.wants_slide = input_component.slide_pressed
-	movement_component.handle_slide(delta)
+	movement_component.handle_slide()
 	movement_component.update(delta)
 	
 	#applies gravity

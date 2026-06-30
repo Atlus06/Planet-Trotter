@@ -15,7 +15,7 @@ func update() -> void:
 	aim_direction = Input.get_axis("jump", "down")
 	jump_pressed = Input.is_action_just_pressed("jump")
 	dash_pressed = Input.is_action_just_pressed("dash")
-	slide_pressed = Input.is_action_pressed("slide")
+	slide_pressed = Input.is_action_pressed("crouch")
 	
 	#camera movement
 	camera_look.x = Input.get_axis("look_left","look_right")

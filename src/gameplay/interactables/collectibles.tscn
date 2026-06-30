@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://doi2h56o46e1t"]
 
-[ext_resource type="Texture2D" uid="uid://qdl4mhpxnvab" path="res://Assets/icon.svg" id="1_oknvs"]
+[ext_resource type="Texture2D" uid="uid://cr18s8eg24qew" path="res://Assets/gear.png" id="1_wa5cq"]
 [ext_resource type="Script" uid="uid://1m6kv0ita3is" path="res://src/components/collectable_component.gd" id="2_gb2wt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gb2wt"]
@@ -9,7 +9,9 @@ radius = 75.16648
 [node name="Collectable" type="Area2D" unique_id=935513117]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=856447400]
-texture = ExtResource("1_oknvs")
+position = Vector2(1.4999987, 2.0000057)
+scale = Vector2(6.71875, 6.562501)
+texture = ExtResource("1_wa5cq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1097344666]
 shape = SubResource("CircleShape2D_gb2wt")

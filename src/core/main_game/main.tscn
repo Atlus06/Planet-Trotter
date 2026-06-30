@@ -1,21 +1,21 @@
 [gd_scene format=3 uid="uid://drc4lugns5bhe"]
 
 [ext_resource type="Script" uid="uid://dru7mi1kfsfuy" path="res://src/core/main_game/main.gd" id="1_l4v7s"]
-[ext_resource type="PackedScene" uid="uid://bron0wumjmfk4" path="res://src/levels/levels/start_level_test.tscn" id="2_8jwtq"]
+[ext_resource type="Script" uid="uid://b3o3cuhc47nrl" path="res://src/core/main_game/systems.gd" id="2_xijci"]
 [ext_resource type="PackedScene" uid="uid://cf61t4wy32qm4" path="res://src/gameplay/player/player.tscn" id="3_h7gx0"]
 
-[node name="Main" type="Node" unique_id=966117738]
+[node name="Main" type="Node" unique_id=966117738 node_paths=PackedStringArray("player")]
 process_mode = 3
 script = ExtResource("1_l4v7s")
+player = NodePath("World/EntityRoot/Player")
 
 [node name="Systems" type="Node" parent="." unique_id=952550901]
+script = ExtResource("2_xijci")
 
 [node name="World" type="Node2D" parent="." unique_id=1859327939]
 process_mode = 1
 
 [node name="LevelRoot" type="Node2D" parent="World" unique_id=492495862]
-
-[node name="StartLevel_Test" parent="World/LevelRoot" unique_id=528654400 instance=ExtResource("2_8jwtq")]
 
 [node name="EntityRoot" type="Node2D" parent="World" unique_id=111508631]
 

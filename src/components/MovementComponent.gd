@@ -16,6 +16,7 @@ var was_on_floor := false
 var jumping := false
 var Ydirection: float
 var CanJump := false
+var CanDJump := false
 var is_wall_jumping := false
 
 var wants_dash := false
@@ -50,22 +51,19 @@ func update(delta: float) -> void:
 	if body.is_on_floor() or body.is_on_wall():
 		CanJump = true
 		CanDash = true
+		CanDJump = true
 		was_on_floor = true
 	
 	#jump
-	if jumping == true:
-		if body.is_on_floor() or not coyote_timer.is_stopped():
-			body.velocity.y = jump_velo
-			CanJump = false
-			coyote_timer.stop()
-		elif jumping and CanJump == true:
-			body.velocity.y = jump_velo
-			CanJump = false
+	if jumping and CanJump:
+		jump()
+		#print("normal jump")
+	elif jumping and CanDJump and not body.is_on_floor():
+		jump()
+		#print("double jump")
 	
-	if was_on_floor and coyote_timer.is_stopped():
+	if body.is_on_floor() == false and CanJump and coyote_timer.is_stopped():
 		coyote_timer.start()
-		was_on_floor = false
-	
 	
 		
 		
@@ -97,13 +95,21 @@ func update(delta: float) -> void:
 			wall_jump.start()
 			is_wall_jumping = true
 	
-	handle_slide(delta)
+	handle_slide()
 	
 	body.move_and_slide()
 
 
 
-func handle_slide(delta: float) -> void:
+func jump():
+	body.velocity.y = jump_velo
+	if body.is_on_floor():
+		CanJump = false
+	elif was_on_floor:
+		CanDJump = false
+
+
+func handle_slide() -> void:
 		#slide/ crouch
 	#if wants_slide and direction == 0:
 		#wants_crouch = true
@@ -111,7 +117,7 @@ func handle_slide(delta: float) -> void:
 	if body.is_on_floor() and wants_slide and abs(body.velocity.x) > min_slide_tres and canslide:
 		if is_sliding == false:
 			is_sliding = true
-			print("slide started")
+			#print("slide started")
 			dash_cooldown.start()
 			canslide = false
 			
@@ -122,10 +128,10 @@ func handle_slide(delta: float) -> void:
 		
 		if abs(body.velocity.x) <= slide_stop_tres:
 			stop_sliding()
-			print("slide stopped: stop treshold")
+			#print("slide stopped: stop treshold")
 		elif wants_slide == false:
 			stop_sliding()
-			print("slide stopped: button released")
+			#print("slide stopped: button released")
 
 
 
@@ -140,3 +146,7 @@ func stop_sliding() -> void:
 
 func _on_dash_cooldown_timeout() -> void:
 	canslide = true
+
+
+func _on_coyote_timer_timeout() -> void:
+	CanJump = false

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://fbejtmxntvl"]
+
+[ext_resource type="Script" uid="uid://cmjduv6rdwx0x" path="res://src/gameplay/interactables/hurt_box.gd" id="1_3sp3k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3sp3k"]
+radius = 34.0
+height = 116.0
+
+[node name="HurtBox" type="Area2D" unique_id=1730661942]
+script = ExtResource("1_3sp3k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=901827892]
+shape = SubResource("CapsuleShape2D_3sp3k")
+
+[node name="Label" type="Label" parent="." unique_id=1690257913]
+offset_left = 49.0
+offset_top = -53.999996
+offset_right = 126.0
+offset_bottom = -30.999996
+rotation = 1.5680791
+scale = Vector2(1.4001071, 4.120858)
+text = "HURTBOX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

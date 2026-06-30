@@ -1,15 +1,23 @@
 [gd_scene format=3 uid="uid://bron0wumjmfk4"]
 
+[ext_resource type="Script" uid="uid://dmxysk6eh66gg" path="res://src/levels/level_components/start_level_info_component.gd" id="1_dygjl"]
 [ext_resource type="PackedScene" uid="uid://cr4mkpaurcyv0" path="res://src/levels/level_components/floor.tscn" id="1_s1lil"]
 [ext_resource type="PackedScene" uid="uid://c1k0kbu1wwrm6" path="res://src/levels/level_components/wall.tscn" id="2_po03k"]
 [ext_resource type="PackedScene" uid="uid://d2ofgkmuhelmq" path="res://src/levels/level_components/platform.tscn" id="3_ef8id"]
 [ext_resource type="PackedScene" uid="uid://doi2h56o46e1t" path="res://src/gameplay/interactables/collectibles.tscn" id="4_538ra"]
-[ext_resource type="PackedScene" uid="uid://euo5evp86ctc" path="res://src/levels/level_components/level_switcher.tscn" id="5_po03k"]
+[ext_resource type="PackedScene" uid="uid://euo5evp86ctc" path="res://src/levels/level_components/level switcher/level_switcher.tscn" id="5_po03k"]
+[ext_resource type="Script" uid="uid://dr6lbha0cj0ni" path="res://src/levels/level_components/level switcher/level_switcher_lvl1.gd" id="6_ef8id"]
+[ext_resource type="PackedScene" uid="uid://fbejtmxntvl" path="res://src/gameplay/interactables/hurt_box.tscn" id="7_538ra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_po03k"]
 size = Vector2(161, 253)
 
 [node name="StartLevel_Test" type="Node2D" unique_id=528654400]
+
+[node name="start_level_info" type="Node" parent="." unique_id=1555482996]
+script = ExtResource("1_dygjl")
+max_collectable_number = 13
+metadata/_custom_type_script = "uid://dmxysk6eh66gg"
 
 [node name="Enviornment" type="Node" parent="." unique_id=1577014597]
 
@@ -365,6 +373,7 @@ scale = Vector2(0.6, 0.6)
 
 [node name="LevelSwitcher" parent="Objects/LevelSwitch" unique_id=326202995 instance=ExtResource("5_po03k")]
 position = Vector2(-1669, -225)
+script = ExtResource("6_ef8id")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/LevelSwitch/LevelSwitcher" unique_id=1871475571]
 position = Vector2(70.5, 116.5)
@@ -377,7 +386,11 @@ theme_override_font_sizes/font_size = 56
 text = "To
 Next
 Level"
+metadata/_edit_use_anchors_ = true
 
-[node name="PlayerSpawn" type="Node" parent="Objects" unique_id=551039250]
+[node name="PlayerSpawn" type="Node" parent="." unique_id=551039250]
 
-[node name="PlayerSpawn" type="Marker2D" parent="Objects/PlayerSpawn" unique_id=696353823]
+[node name="temp" type="Node" parent="." unique_id=1520839618]
+
+[node name="HurtBox" parent="temp" unique_id=1730661942 instance=ExtResource("7_538ra")]
+position = Vector2(1304, -28)

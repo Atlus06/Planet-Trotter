@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://pt2hv0gvs34s"]
+
+[ext_resource type="PackedScene" uid="uid://cr4mkpaurcyv0" path="res://src/levels/level_components/floor.tscn" id="1_5ylj8"]
+
+[node name="Level2Test" type="Node2D" unique_id=318216114]
+
+[node name="Floor" parent="." unique_id=1638395231 instance=ExtResource("1_5ylj8")]
+position = Vector2(-362, 621)
+
+[node name="Label" type="Label" parent="." unique_id=1555438888]
+offset_left = -511.0
+offset_top = 168.0
+offset_right = -250.0
+offset_bottom = 275.0
+theme_override_font_sizes/font_size = 78
+text = "Level 2"
