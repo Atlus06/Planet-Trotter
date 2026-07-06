@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://n8mlxlm6rc5c"]
 
+[ext_resource type="Script" uid="uid://tqdnkrk6qtx7" path="res://src/levels/levels/level_1_info.gd" id="1_jqxac"]
 [ext_resource type="PackedScene" uid="uid://cr4mkpaurcyv0" path="res://src/levels/level_components/floor.tscn" id="1_mwsbo"]
 [ext_resource type="PackedScene" uid="uid://euo5evp86ctc" path="res://src/levels/level_components/level switcher/level_switcher.tscn" id="2_vyunw"]
 [ext_resource type="Script" uid="uid://3qpmovyfqk0k" path="res://src/levels/level_components/level switcher/level_switcher_lvl2.gd" id="3_qmyir"]
@@ -9,6 +10,12 @@
 size = Vector2(173, 230)
 
 [node name="Level1_Test" type="Node2D" unique_id=661084142]
+
+[node name="level_1_info" type="Node" parent="." unique_id=1558169694]
+script = ExtResource("1_jqxac")
+
+[node name="PlayerSpawn" type="Marker2D" parent="level_1_info" unique_id=1924041074]
+position = Vector2(582, 622)
 
 [node name="Label" type="Label" parent="." unique_id=1982247816]
 offset_left = 421.0
@@ -60,5 +67,3 @@ START
 LEVEL"
 uppercase = true
 metadata/_edit_use_anchors_ = true
-
-[node name="PlayerSpawn" type="Node" parent="." unique_id=156468546]

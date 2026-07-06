@@ -1,6 +1,5 @@
-class_name Player_Spwan extends Marker2D
+extends start_level_info
 
-@export var player: Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

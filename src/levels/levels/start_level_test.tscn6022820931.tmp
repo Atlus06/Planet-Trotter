@@ -228,6 +228,8 @@ Next
 Level"
 metadata/_edit_use_anchors_ = true
 
+[node name="PlayerSpawn" type="Node" parent="." unique_id=551039250]
+
 [node name="temp" type="Node" parent="." unique_id=1520839618]
 
 [node name="HurtBox" parent="temp" unique_id=1730661942 instance=ExtResource("7_538ra")]

@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://dru7mi1kfsfuy" path="res://src/core/main_game/main.gd" id="1_l4v7s"]
 [ext_resource type="Script" uid="uid://b3o3cuhc47nrl" path="res://src/core/main_game/systems.gd" id="2_xijci"]
 [ext_resource type="PackedScene" uid="uid://cf61t4wy32qm4" path="res://src/gameplay/player/player.tscn" id="3_h7gx0"]
+[ext_resource type="Script" uid="uid://npfbdr5f26fv" path="res://src/core/main_game/transition_root.gd" id="4_xijci"]
 
-[node name="Main" type="Node" unique_id=966117738 node_paths=PackedStringArray("player")]
+[node name="Main" type="Node" unique_id=966117738]
 process_mode = 3
 script = ExtResource("1_l4v7s")
-player = NodePath("World/EntityRoot/Player")
 
 [node name="Systems" type="Node" parent="." unique_id=952550901]
 script = ExtResource("2_xijci")
@@ -20,5 +20,76 @@ process_mode = 1
 [node name="EntityRoot" type="Node2D" parent="World" unique_id=111508631]
 
 [node name="Player" parent="World/EntityRoot" unique_id=1113507717 instance=ExtResource("3_h7gx0")]
+process_mode = 1
 position = Vector2(2, -12)
 scale = Vector2(0.13, 0.13)
+
+[node name="HudLayer" type="CanvasLayer" parent="." unique_id=162979574]
+process_mode = 1
+
+[node name="HudRoot" type="Control" parent="HudLayer" unique_id=430757144]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=1724595383]
+process_mode = 2
+
+[node name="PauseRoot" type="Control" parent="PauseLayer" unique_id=464112283]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1714825914]
+process_mode = 3
+
+[node name="TransitionRoot" type="Control" parent="TransitionLayer" unique_id=464073076]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_xijci")
+
+[node name="ColorRect" type="ColorRect" parent="TransitionLayer/TransitionRoot" unique_id=1602870774]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.571389, 0.47634518, 1, 1)
+
+[node name="Label" type="Label" parent="TransitionLayer/TransitionRoot/ColorRect" unique_id=336430539]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Loading..."
+
+[node name="DebugLayer" type="CanvasLayer" parent="." unique_id=624274306]
+process_mode = 3
+
+[node name="DebugRoot" type="Control" parent="DebugLayer" unique_id=1701487534]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

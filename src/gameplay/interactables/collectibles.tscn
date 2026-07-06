@@ -7,6 +7,7 @@
 radius = 75.16648
 
 [node name="Collectable" type="Area2D" unique_id=935513117]
+texture_filter = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=856447400]
 position = Vector2(1.4999987, 2.0000057)
