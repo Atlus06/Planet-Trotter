@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dru7mi1kfsfuy" path="res://src/core/main_game/main.gd" id="1_l4v7s"]
 [ext_resource type="Script" uid="uid://b3o3cuhc47nrl" path="res://src/core/main_game/systems.gd" id="2_xijci"]
-[ext_resource type="PackedScene" uid="uid://cf61t4wy32qm4" path="res://src/gameplay/player/player.tscn" id="3_h7gx0"]
 [ext_resource type="Script" uid="uid://npfbdr5f26fv" path="res://src/core/main_game/transition_root.gd" id="4_xijci"]
 
 [node name="Main" type="Node" unique_id=966117738]
@@ -18,8 +17,6 @@ process_mode = 1
 [node name="LevelRoot" type="Node2D" parent="World" unique_id=492495862]
 
 [node name="EntityRoot" type="Node2D" parent="World" unique_id=111508631]
-
-[node name="Player" parent="World/EntityRoot" unique_id=1113507717 instance=ExtResource("3_h7gx0")]
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=162979574]
 process_mode = 1

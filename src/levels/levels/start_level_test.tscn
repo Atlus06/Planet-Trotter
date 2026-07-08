@@ -143,7 +143,7 @@ script = ExtResource("1_dygjl")
 metadata/_custom_type_script = "uid://dmxysk6eh66gg"
 
 [node name="PlayerSpawn" type="Marker2D" parent="start_level_info" unique_id=442750839]
-position = Vector2(0, 40)
+position = Vector2(0, 19)
 
 [node name="Enviornment" type="Node" parent="." unique_id=1577014597]
 
@@ -212,7 +212,7 @@ scale = Vector2(0.6, 0.6)
 [node name="LevelSwitch" type="Node" parent="Objects" unique_id=1316987309]
 
 [node name="LevelSwitcher" parent="Objects/LevelSwitch" unique_id=326202995 instance=ExtResource("5_po03k")]
-position = Vector2(-1669, -225)
+position = Vector2(-1667, -178)
 script = ExtResource("6_ef8id")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/LevelSwitch/LevelSwitcher" unique_id=1871475571]
@@ -231,4 +231,4 @@ metadata/_edit_use_anchors_ = true
 [node name="temp" type="Node" parent="." unique_id=1520839618]
 
 [node name="HurtBox" parent="temp" unique_id=1730661942 instance=ExtResource("7_538ra")]
-position = Vector2(1304, -28)
+position = Vector2(1304, 11)

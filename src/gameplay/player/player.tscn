@@ -12,7 +12,7 @@
 size = Vector2(330, 614)
 
 [node name="Player" type="CharacterBody2D" unique_id=1113507717]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.14, 0.14)
 script = ExtResource("1_cvnsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1227844510]
@@ -30,14 +30,14 @@ position_smoothing_enabled = true
 [node name="DashTimer" type="Timer" parent="." unique_id=2069224292]
 wait_time = 0.1
 
-[node name="WallJump" type="Timer" parent="." unique_id=1170025154]
-wait_time = 0.22
-
 [node name="DashCooldown" type="Timer" parent="." unique_id=1726882952]
-wait_time = 1.1
+wait_time = 2.5
+
+[node name="WallJumpTimer" type="Timer" parent="." unique_id=2025364201]
+wait_time = 0.25
 
 [node name="CoyoteTimer" type="Timer" parent="." unique_id=56991568]
-wait_time = 0.2
+wait_time = 2.0
 
 [node name="Input_Component" type="Node" parent="." unique_id=190985975]
 unique_name_in_owner = true
@@ -75,6 +75,6 @@ script = ExtResource("7_kjyqo")
 metadata/_custom_type_script = "uid://c468vlif3y6ll"
 
 [connection signal="timeout" from="DashTimer" to="Movement_Component" method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="WallJump" to="Movement_Component" method="_on_wall_jump_timeout"]
 [connection signal="timeout" from="DashCooldown" to="Movement_Component" method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="WallJumpTimer" to="Movement_Component" method="_on_wall_jump_timer_timeout"]
 [connection signal="timeout" from="CoyoteTimer" to="Movement_Component" method="_on_coyote_timer_timeout"]

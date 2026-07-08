@@ -4,6 +4,7 @@ extends Node
 @onready var EntityRoot = get_node("World/EntityRoot")
 @onready var player: Player = $World/EntityRoot/Player
 
+
 func _ready() -> void:
 	load_start()
 	

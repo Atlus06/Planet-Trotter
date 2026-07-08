@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	movement_component.jumping = input_component.jump_pressed
 	movement_component.wants_dash = input_component.dash_pressed
 	movement_component.wants_slide = input_component.slide_pressed
-	movement_component.handle_slide()
+	#movement_component.handle_slide()
 	movement_component.update(delta)
 	
 	#applies gravity
