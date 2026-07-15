@@ -1,14 +1,13 @@
-[gd_scene format=3 uid="uid://pt2hv0gvs34s"]
+[gd_scene format=3 uid="uid://b0vf38lbmw1bs"]
 
-[ext_resource type="Script" uid="uid://ew3q0xj6aa6v" path="res://src/levels/level_info/level_2_info.gd" id="1_aq88e"]
-[ext_resource type="Texture2D" uid="uid://djkc843pi3x8a" path="res://Assets/meadow_tilemap.png" id="2_d046y"]
-[ext_resource type="PackedScene" uid="uid://doi2h56o46e1t" path="res://src/gameplay/interactables/collectibles.tscn" id="3_mu6i6"]
-[ext_resource type="PackedScene" uid="uid://euo5evp86ctc" path="res://src/levels/level_components/level switcher/level_switcher.tscn" id="4_hpkub"]
-[ext_resource type="Script" uid="uid://bhfjny70283v0" path="res://src/levels/level_components/level switcher/level_switcher_lvl3.gd" id="6_aq88e"]
-[ext_resource type="Script" uid="uid://d1lh5vem7qgqx" path="res://src/levels/level_components/level switcher/level_switcher_back2start.gd" id="6_ycp1o"]
+[ext_resource type="Script" uid="uid://c733l6mrrtssm" path="res://src/levels/level_info/level_5_info.gd" id="1_y6fb4"]
+[ext_resource type="Texture2D" uid="uid://djkc843pi3x8a" path="res://Assets/meadow_tilemap.png" id="2_ror3m"]
+[ext_resource type="PackedScene" uid="uid://doi2h56o46e1t" path="res://src/gameplay/interactables/collectibles.tscn" id="3_bwxfc"]
+[ext_resource type="PackedScene" uid="uid://euo5evp86ctc" path="res://src/levels/level_components/level switcher/level_switcher.tscn" id="4_tclns"]
+[ext_resource type="Script" uid="uid://d1lh5vem7qgqx" path="res://src/levels/level_components/level switcher/level_switcher_back2start.gd" id="6_wb3y1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jgcp"]
-texture = ExtResource("2_d046y")
+texture = ExtResource("2_ror3m")
 4:1/0 = 0
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:2/0 = 0
@@ -145,18 +144,15 @@ texture = ExtResource("2_d046y")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6jgcp")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyunw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_koqx2"]
 size = Vector2(173, 230)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqsn8"]
-size = Vector2(173, 230)
+[node name="Level5_Test" type="Node2D" unique_id=661084142]
 
-[node name="Level2_Test" type="Node2D" unique_id=661084142]
+[node name="level_5_info" type="Node" parent="." unique_id=1558169694]
+script = ExtResource("1_y6fb4")
 
-[node name="level_2_info" type="Node" parent="." unique_id=1558169694]
-script = ExtResource("1_aq88e")
-
-[node name="PlayerSpawn" type="Marker2D" parent="level_2_info" unique_id=1924041074]
+[node name="PlayerSpawn" type="Marker2D" parent="level_5_info" unique_id=1924041074]
 position = Vector2(-1376, 1736)
 
 [node name="Enviornment" type="Node" parent="." unique_id=113211563]
@@ -168,45 +164,27 @@ tile_set = SubResource("TileSet_lw4cc")
 
 [node name="Collectables" type="Node" parent="Objects" unique_id=534535146]
 
-[node name="Collectibles" parent="Objects/Collectables" unique_id=935513117 instance=ExtResource("3_mu6i6")]
+[node name="Collectibles" parent="Objects/Collectables" unique_id=935513117 instance=ExtResource("3_bwxfc")]
 position = Vector2(-2632, 1702.0001)
 scale = Vector2(0.6, 0.6)
 
 [node name="LevelSwitch" type="Node" parent="Objects" unique_id=1888275976]
 
-[node name="LevelSwitcher_component2" parent="Objects/LevelSwitch" unique_id=377270517 instance=ExtResource("4_hpkub")]
+[node name="LevelSwitcher_component2" parent="Objects/LevelSwitch" unique_id=326202995 instance=ExtResource("4_tclns")]
 position = Vector2(-1866, 1536)
-script = ExtResource("6_ycp1o")
+script = ExtResource("6_wb3y1")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/LevelSwitch/LevelSwitcher_component2" unique_id=297582580]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/LevelSwitch/LevelSwitcher_component2" unique_id=320564585]
 position = Vector2(78.5, 108)
-shape = SubResource("RectangleShape2D_vyunw")
+shape = SubResource("RectangleShape2D_koqx2")
 
-[node name="Label2" type="Label" parent="Objects/LevelSwitch/LevelSwitcher_component2" unique_id=1251710181]
+[node name="Label2" type="Label" parent="Objects/LevelSwitch/LevelSwitcher_component2" unique_id=330569392]
 offset_top = -9.0
 offset_right = 158.0
 offset_bottom = 228.0
 theme_override_font_sizes/font_size = 56
 text = "TO
 START
-LEVEL"
-uppercase = true
-metadata/_edit_use_anchors_ = true
-
-[node name="LevelSwitcher_component" parent="Objects/LevelSwitch" unique_id=326202995 instance=ExtResource("4_hpkub")]
-position = Vector2(-2292, 1551)
-script = ExtResource("6_aq88e")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/LevelSwitch/LevelSwitcher_component" unique_id=1484327215]
-position = Vector2(78.5, 117)
-shape = SubResource("RectangleShape2D_qqsn8")
-
-[node name="Label" type="Label" parent="Objects/LevelSwitch/LevelSwitcher_component" unique_id=50470106]
-offset_right = 158.0
-offset_bottom = 237.0
-theme_override_font_sizes/font_size = 56
-text = "TO
-NEXT
 LEVEL"
 uppercase = true
 metadata/_edit_use_anchors_ = true

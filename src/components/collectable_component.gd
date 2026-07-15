@@ -6,7 +6,7 @@ var resource_value := 1
 var can_collect = false
 
 func _ready() -> void:
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.3).timeout
 	can_collect = true
 	
 

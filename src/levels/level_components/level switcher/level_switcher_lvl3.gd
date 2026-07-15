@@ -10,7 +10,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	#GameSignals.change_level.emit()
 	if can_switch and body is Player:
-		GameSignals.leaving_level.emit("res://src/levels/levels/level_2_test.tscn")
-		#print("to level 3")
+		GameSignals.leaving_level.emit("res://src/levels/levels/level_3_test.tscn")
+		#print("to level 2")
 	
 	

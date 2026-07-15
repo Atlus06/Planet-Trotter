@@ -13,6 +13,8 @@ func _ready() -> void:
 #Collectable system
 func set_max_collectables(most: int) -> void:
 	max_collectables = most
+	collectables_collected = 0
+	print("Collectables Collected: %d / %d" %[collectables_collected, max_collectables])
 
 func update_collectables(value: int) -> void:
 	collectables_collected += value

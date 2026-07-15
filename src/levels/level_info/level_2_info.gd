@@ -1,4 +1,4 @@
-class_name level_1_info extends Node
+class_name level_2_info extends Node
 
 @onready var player_spawn: Marker2D = $PlayerSpawn
 
