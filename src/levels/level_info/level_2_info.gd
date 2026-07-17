@@ -2,7 +2,7 @@ class_name level_2_info extends Node
 
 @onready var player_spawn: Marker2D = $PlayerSpawn
 
-@export var max_collectable_number := 0
+@export var max_collectable_number := 19
 @export var max_checkpoint_number: int
 @export var player_spawn_pos: Vector2
 

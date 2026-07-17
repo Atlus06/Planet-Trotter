@@ -7,10 +7,10 @@ class_name Player extends CharacterBody2D
 @onready var camera_component: Camera_Component = %Camera_Component
 @onready var health_component: Health_Component = %Health_Component
 
-func _ready() -> void:
-	collision_shape_2d.disabled = true
-	await get_tree().create_timer(0.5).timeout
-	collision_shape_2d.disabled = false
+#func _ready() -> void:
+	#collision_shape_2d.disabled = true
+	#await get_tree().create_timer(0.5).timeout
+	#collision_shape_2d.disabled = false
 
 func _physics_process(delta: float) -> void:
 	

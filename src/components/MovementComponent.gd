@@ -50,15 +50,13 @@ func update(delta: float) -> void:
 	if body.is_on_floor():
 		CanJump = true
 		CanDJump = true
-		CanDash = true
 	
-	if body.is_on_wall():
-		CanDash = true
+	
 	
 	#wall clinging
 	if body.is_on_wall() and not body.is_on_floor():
 		if direction != 0:
-			body.velocity.y = min(body.velocity.y, 40)
+			body.velocity.y = min(body.velocity.y, 125)
 	
 	#jump
 	if jumping:

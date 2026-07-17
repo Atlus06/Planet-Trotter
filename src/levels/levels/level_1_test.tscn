@@ -155,7 +155,7 @@ size = Vector2(173, 230)
 script = ExtResource("1_jqxac")
 
 [node name="PlayerSpawn" type="Marker2D" parent="level_1_info" unique_id=1924041074]
-position = Vector2(-1376, 1736)
+position = Vector2(-1472, 1742)
 
 [node name="Enviornment" type="Node" parent="." unique_id=113211563]
 
@@ -263,6 +263,8 @@ scale = Vector2(0.6, 0.6)
 
 [node name="LevelSwitcher_component" parent="Objects/LevelSwitch" unique_id=326202995 instance=ExtResource("2_vyunw")]
 position = Vector2(-2768, -2977)
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("3_qmyir")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/LevelSwitch/LevelSwitcher_component" unique_id=563553997]
@@ -281,6 +283,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="LevelSwitcher_component2" parent="Objects/LevelSwitch" unique_id=377270517 instance=ExtResource("2_vyunw")]
 position = Vector2(-1866, 1536)
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("4_gyw3p")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/LevelSwitch/LevelSwitcher_component2" unique_id=297582580]
