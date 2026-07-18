@@ -1,6 +1,6 @@
 class_name Movement_Component extends Node
 @onready var dash_timer: Timer = $"../DashTimer"
-@onready var dash_cooldown: Timer = $"../DashCooldown"
+@onready var dash_cooldown_timer: Timer = $"../DashCooldown"
 @onready var coyote_timer: Timer = $"../CoyoteTimer"
 @onready var wall_jump_timer: Timer = $"../WallJumpTimer"
 
@@ -50,6 +50,7 @@ func update(delta: float) -> void:
 	if body.is_on_floor():
 		CanJump = true
 		CanDJump = true
+		CanDash = true
 	
 	
 	
@@ -94,6 +95,8 @@ func jump():
 	
 
 func dash():
+	await get_tree().create_timer(0.1).timeout
+	
 	dash_timer.start()
 	GameSignals.player_dashed.emit()
 	
@@ -105,7 +108,8 @@ func dash():
 	CanDash = false
 	is_dashing = true
 	
-	dash_cooldown.start()
+	dash_cooldown_timer.start()
+
 
 func wall_jump():
 	var wall_normal = body.get_wall_normal()

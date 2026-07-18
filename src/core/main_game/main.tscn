@@ -79,7 +79,6 @@ text = "Collectables Collected: 0 / 0"
 
 [node name="PauseLayer" type="CanvasLayer" parent="UIController" unique_id=1724595383]
 process_mode = 3
-visible = false
 
 [node name="PauseRoot" type="Control" parent="UIController/PauseLayer" unique_id=464112283]
 layout_mode = 3
@@ -117,7 +116,6 @@ text = "Game Paused"
 
 [node name="TransitionLayer" type="CanvasLayer" parent="UIController" unique_id=1714825914]
 process_mode = 3
-visible = false
 
 [node name="TransitionRoot" type="Control" parent="UIController/TransitionLayer" unique_id=464073076]
 layout_mode = 3

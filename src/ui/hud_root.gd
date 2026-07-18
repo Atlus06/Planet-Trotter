@@ -4,7 +4,7 @@ extends Control
 @onready var dash_charge_bar: ProgressBar = $VBoxContainer2/VBoxContainer/DashChargeBar
 @onready var collectable_counter: Label = $VBoxContainer2/CollectableCounter
 
-@export var duration := 1.5
+@export var duration := 0.75
 var timer := 0.0
 
 @export var max_collectables: int
