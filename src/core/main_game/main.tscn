@@ -3,7 +3,16 @@
 [ext_resource type="Script" uid="uid://dru7mi1kfsfuy" path="res://src/core/main_game/main.gd" id="1_l4v7s"]
 [ext_resource type="Script" uid="uid://b3o3cuhc47nrl" path="res://src/core/main_game/systems.gd" id="2_xijci"]
 [ext_resource type="PackedScene" uid="uid://cf61t4wy32qm4" path="res://src/gameplay/player/player.tscn" id="3_h7gx0"]
-[ext_resource type="Script" uid="uid://npfbdr5f26fv" path="res://src/core/main_game/transition_root.gd" id="4_xijci"]
+[ext_resource type="Script" uid="uid://bn7uthjbrna12" path="res://src/ui/ui_controller.gd" id="4_op4kn"]
+[ext_resource type="Script" uid="uid://npfbdr5f26fv" path="res://src/ui/transition_root.gd" id="4_xijci"]
+[ext_resource type="Script" uid="uid://dap6qq3fttu57" path="res://src/ui/pause_root.gd" id="4_yuwmb"]
+[ext_resource type="Script" uid="uid://daneexbwbd4bh" path="res://src/ui/hud_root.gd" id="5_8l6nt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_op4kn"]
+bg_color = Color(0.3137255, 0.75686276, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8l6nt"]
+bg_color = Color(0.5883669, 0.3685397, 0, 1)
 
 [node name="Main" type="Node" unique_id=966117738]
 process_mode = 3
@@ -21,32 +30,96 @@ process_mode = 1
 
 [node name="Player" parent="World/EntityRoot" unique_id=1113507717 instance=ExtResource("3_h7gx0")]
 
-[node name="HudLayer" type="CanvasLayer" parent="." unique_id=162979574]
+[node name="UIController" type="Node" parent="." unique_id=1340448080]
+script = ExtResource("4_op4kn")
+
+[node name="HudLayer" type="CanvasLayer" parent="UIController" unique_id=162979574]
 process_mode = 1
 
-[node name="HudRoot" type="Control" parent="HudLayer" unique_id=430757144]
+[node name="HudRoot" type="Control" parent="UIController/HudLayer" unique_id=430757144]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("5_8l6nt")
+metadata/_edit_use_anchors_ = true
 
-[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=1724595383]
-process_mode = 2
+[node name="VBoxContainer2" type="VBoxContainer" parent="UIController/HudLayer/HudRoot" unique_id=1382246861]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 554.0
+offset_bottom = 139.0
 
-[node name="PauseRoot" type="Control" parent="PauseLayer" unique_id=464112283]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="UIController/HudLayer/HudRoot/VBoxContainer2" unique_id=1314685788]
+layout_mode = 2
+size_flags_vertical = 3
 
-[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1714825914]
+[node name="HealthBar" type="ProgressBar" parent="UIController/HudLayer/HudRoot/VBoxContainer2/VBoxContainer" unique_id=633488734]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/fill = SubResource("StyleBoxFlat_op4kn")
+max_value = 30.0
+value = 30.0
+show_percentage = false
+
+[node name="DashChargeBar" type="ProgressBar" parent="UIController/HudLayer/HudRoot/VBoxContainer2/VBoxContainer" unique_id=1639324061]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 22
+theme_override_styles/background = SubResource("StyleBoxFlat_8l6nt")
+
+[node name="CollectableCounter" type="Label" parent="UIController/HudLayer/HudRoot/VBoxContainer2" unique_id=1201828925]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Collectables Collected: 0 / 0"
+
+[node name="PauseLayer" type="CanvasLayer" parent="UIController" unique_id=1724595383]
 process_mode = 3
+visible = false
 
-[node name="TransitionRoot" type="Control" parent="TransitionLayer" unique_id=464073076]
+[node name="PauseRoot" type="Control" parent="UIController/PauseLayer" unique_id=464112283]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_yuwmb")
+
+[node name="PauseRect" type="ColorRect" parent="UIController/PauseLayer/PauseRoot" unique_id=491142039]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.096749805, 0, 0.60385346, 1)
+
+[node name="PauseLabel" type="Label" parent="UIController/PauseLayer/PauseRoot/PauseRect" unique_id=1394824622]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -11.5
+offset_right = 53.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 78
+text = "Game Paused"
+
+[node name="TransitionLayer" type="CanvasLayer" parent="UIController" unique_id=1714825914]
+process_mode = 3
+visible = false
+
+[node name="TransitionRoot" type="Control" parent="UIController/TransitionLayer" unique_id=464073076]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,7 +128,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_xijci")
 
-[node name="ColorRect" type="ColorRect" parent="TransitionLayer/TransitionRoot" unique_id=1602870774]
+[node name="TransitionRect" type="ColorRect" parent="UIController/TransitionLayer/TransitionRoot" unique_id=1602870774]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,7 +137,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.571389, 0.47634518, 1, 1)
 
-[node name="Label" type="Label" parent="TransitionLayer/TransitionRoot/ColorRect" unique_id=336430539]
+[node name="TransitionLabel" type="Label" parent="UIController/TransitionLayer/TransitionRoot/TransitionRect" unique_id=336430539]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

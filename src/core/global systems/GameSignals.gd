@@ -10,6 +10,10 @@ signal player_spawn(marker_location)
 
 	#Player Damage
 signal hurt_player(damage)
+signal health_changed(health)
+
+	#Player Movement
+signal player_dashed
 
 	#Collectable Counter
 signal collectable_collected(value)

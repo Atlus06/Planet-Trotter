@@ -1,11 +1,13 @@
 extends Control
 
-@onready var color_rect: ColorRect = $ColorRect
-@onready var label: Label = $ColorRect/Label
+@onready var transition_rect: ColorRect = $TransitionRect
+@onready var transition_label: Label = $TransitionRect/TransitionLabel
+
+var is_transitioning: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	color_rect.visible = false
+	transition_rect.visible = false
 	
 	GameSignals.start_transition.connect(transition)
 	GameSignals.end_transition.connect(transition_end)
@@ -16,12 +18,15 @@ func _process(delta: float) -> void:
 	pass
 
 func transition():
-	color_rect.visible = true
+	is_transitioning = true
+	transition_rect.visible = true
+	get_viewport().set_input_as_handled()
 	get_tree().paused = true
 
 func transition_end():
 	
 	await get_tree().create_timer(1.5).timeout
 	
-	color_rect.visible = false
+	transition_rect.visible = false
 	get_tree().paused = false
+	is_transitioning = false
