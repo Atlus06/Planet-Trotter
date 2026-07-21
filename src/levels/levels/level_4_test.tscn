@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://d1lh5vem7qgqx" path="res://src/levels/level_components/level switcher/level_switcher_back2start.gd" id="6_681c3"]
 [ext_resource type="Script" uid="uid://bk4ss1frttj2j" path="res://src/levels/level_components/level switcher/level_switcher_lvl5.gd" id="6_nn7e5"]
 [ext_resource type="Texture2D" uid="uid://crxxdul6tdfuf" path="res://Assets/Level Designs/cliffmap.png" id="7_fg5s8"]
+[ext_resource type="PackedScene" uid="uid://c22370y85xjbx" path="res://src/levels/level_components/checkpoint/checkpoint.tscn" id="7_oku8s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oku8s"]
 texture = ExtResource("2_fg5s8")
@@ -379,13 +380,22 @@ LEVEL"
 uppercase = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Map-temp" type="Node" parent="Objects" unique_id=622612950]
+[node name="Checkpoint" type="Node" parent="Objects" unique_id=1517733245]
 
-[node name="Cliffmap" type="Sprite2D" parent="Objects/Map-temp" unique_id=406186360]
-z_index = -2
-position = Vector2(-125, 715)
-scale = Vector2(10, 10)
-texture = ExtResource("7_fg5s8")
+[node name="Checkpoint" parent="Objects/Checkpoint" unique_id=673845731 instance=ExtResource("7_oku8s")]
+position = Vector2(-3966, 866)
+
+[node name="Checkpoint2" parent="Objects/Checkpoint" unique_id=1041070034 instance=ExtResource("7_oku8s")]
+position = Vector2(-1639, -798)
+
+[node name="Checkpoint3" parent="Objects/Checkpoint" unique_id=1936874307 instance=ExtResource("7_oku8s")]
+position = Vector2(-1584, 2513)
+
+[node name="Checkpoint4" parent="Objects/Checkpoint" unique_id=1728143731 instance=ExtResource("7_oku8s")]
+position = Vector2(604, 4161)
+
+[node name="Checkpoint5" parent="Objects/Checkpoint" unique_id=1919216359 instance=ExtResource("7_oku8s")]
+position = Vector2(2782, -2287)
 
 [node name="Tutorials" type="Node" parent="." unique_id=1697197883]
 
@@ -406,3 +416,11 @@ theme_override_font_sizes/font_size = 48
 text = "The ground is
 weak is some areas"
 uppercase = true
+
+[node name="Map-temp" type="Node" parent="." unique_id=622612950]
+
+[node name="Cliffmap" type="Sprite2D" parent="Map-temp" unique_id=406186360]
+z_index = -2
+position = Vector2(-125, 715)
+scale = Vector2(10, 10)
+texture = ExtResource("7_fg5s8")

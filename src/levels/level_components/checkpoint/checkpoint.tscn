@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c22370y85xjbx"]
+
+[ext_resource type="Script" uid="uid://dq6yotiqd2tv8" path="res://src/levels/level_components/checkpoint/checkpoint.gd" id="1_xh0j0"]
+[ext_resource type="Texture2D" uid="uid://dytao8khfyuyn" path="res://Assets/temp_checkpoint.png" id="2_fs3m6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smyxk"]
+radius = 38.0
+height = 224.0
+
+[node name="Checkpoint" type="Area2D" unique_id=673845731]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_xh0j0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986972495]
+position = Vector2(14, -108)
+shape = SubResource("CapsuleShape2D_smyxk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1553637691]
+texture_filter = 1
+position = Vector2(0, -101.99999)
+scale = Vector2(6.5, 6.5)
+texture = ExtResource("2_fs3m6")
+
+[node name="RespawnPoint" type="Marker2D" parent="." unique_id=1329689515]
+position = Vector2(0, -100)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

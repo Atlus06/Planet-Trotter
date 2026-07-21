@@ -35,4 +35,8 @@ func _physics_process(delta: float) -> void:
 	camera_component.cam_want_zoom = input_component.cam_zoom
 	camera_component.update()
 	
+	#Temp
+		#Checkpoint
+	if input_component.to_checkpoint_pressed == true:
+		GameSignals.back_to_checkpoint.emit(GameVariables.last_checkpoint_pos)
 	

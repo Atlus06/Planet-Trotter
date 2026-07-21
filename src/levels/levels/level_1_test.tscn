@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://euo5evp86ctc" path="res://src/levels/level_components/level switcher/level_switcher.tscn" id="2_vyunw"]
 [ext_resource type="Script" uid="uid://3qpmovyfqk0k" path="res://src/levels/level_components/level switcher/level_switcher_lvl2.gd" id="3_qmyir"]
 [ext_resource type="Script" uid="uid://d1lh5vem7qgqx" path="res://src/levels/level_components/level switcher/level_switcher_back2start.gd" id="4_gyw3p"]
+[ext_resource type="PackedScene" uid="uid://c22370y85xjbx" path="res://src/levels/level_components/checkpoint/checkpoint.tscn" id="7_lw4cc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jgcp"]
 texture = ExtResource("2_57yqa")
@@ -302,9 +303,29 @@ LEVEL"
 uppercase = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Tutorials" type="Node" parent="Objects" unique_id=352473575]
+[node name="Checkpoints" type="Node" parent="Objects" unique_id=2139695921]
 
-[node name="Jump" type="Label" parent="Objects/Tutorials" unique_id=1324896485]
+[node name="Checkpoint" parent="Objects/Checkpoints" unique_id=673845731 instance=ExtResource("7_lw4cc")]
+position = Vector2(-1472, 1760)
+
+[node name="Checkpoint2" parent="Objects/Checkpoints" unique_id=149549363 instance=ExtResource("7_lw4cc")]
+position = Vector2(3411, -1328)
+
+[node name="Checkpoint3" parent="Objects/Checkpoints" unique_id=333125784 instance=ExtResource("7_lw4cc")]
+position = Vector2(970, 863)
+
+[node name="Checkpoint4" parent="Objects/Checkpoints" unique_id=879553889 instance=ExtResource("7_lw4cc")]
+position = Vector2(-1111, -735)
+
+[node name="Checkpoint5" parent="Objects/Checkpoints" unique_id=76336971 instance=ExtResource("7_lw4cc")]
+position = Vector2(1094, -2750)
+
+[node name="Checkpoint6" parent="Objects/Checkpoints" unique_id=2112703301 instance=ExtResource("7_lw4cc")]
+position = Vector2(3796, 1760)
+
+[node name="Tutorials" type="Node" parent="." unique_id=352473575]
+
+[node name="Jump" type="Label" parent="Tutorials" unique_id=1324896485]
 offset_left = -650.0
 offset_top = 1590.0
 offset_right = -420.0
@@ -312,7 +333,7 @@ offset_bottom = 1624.0
 theme_override_font_sizes/font_size = 24
 text = "USE W TO JUMP"
 
-[node name="JumpDash" type="Label" parent="Objects/Tutorials" unique_id=2134007616]
+[node name="JumpDash" type="Label" parent="Tutorials" unique_id=2134007616]
 offset_left = 779.0
 offset_top = 1396.0
 offset_right = 1310.0
@@ -321,7 +342,7 @@ theme_override_font_sizes/font_size = 24
 text = "YOU CAN USE YOUR DOUBLE JUMP AND DASH
 TO REACH LONGER DISTANCES"
 
-[node name="WallJump" type="Label" parent="Objects/Tutorials" unique_id=1160416675]
+[node name="WallJump" type="Label" parent="Tutorials" unique_id=1160416675]
 offset_left = 2849.0
 offset_top = 1422.0
 offset_right = 3098.0
@@ -331,7 +352,7 @@ text = "JUMP WHILE MOVING
 TOWARDS A WALL
 TO WALL JUMP"
 
-[node name="Collectables" type="Label" parent="Objects/Tutorials" unique_id=1699293490]
+[node name="Collectables" type="Label" parent="Tutorials" unique_id=1699293490]
 offset_left = -86.0
 offset_top = 1497.0
 offset_right = 512.0
@@ -340,9 +361,9 @@ theme_override_font_sizes/font_size = 24
 text = "THESE ARE COLLECTABLES.
 USE THEM TO BUY UPGRADES ON THE MOTHERSHIP"
 
-[node name="temp" type="Node" parent="Objects" unique_id=622612950]
+[node name="temp" type="Node" parent="." unique_id=622612950]
 
-[node name="Meadowsmap" type="Sprite2D" parent="Objects/temp" unique_id=1111437771]
+[node name="Meadowsmap" type="Sprite2D" parent="temp" unique_id=1111437771]
 z_index = -2
 position = Vector2(630, -1687.9999)
 scale = Vector2(10, 10)

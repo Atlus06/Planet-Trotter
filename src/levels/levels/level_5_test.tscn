@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://doi2h56o46e1t" path="res://src/gameplay/interactables/collectibles.tscn" id="3_bwxfc"]
 [ext_resource type="PackedScene" uid="uid://euo5evp86ctc" path="res://src/levels/level_components/level switcher/level_switcher.tscn" id="4_tclns"]
 [ext_resource type="Texture2D" uid="uid://c8i6rsa7p2dg2" path="res://Assets/Level Designs/gasmap.png" id="6_i1v3h"]
+[ext_resource type="PackedScene" uid="uid://c22370y85xjbx" path="res://src/levels/level_components/checkpoint/checkpoint.tscn" id="6_ror3m"]
 [ext_resource type="Script" uid="uid://d1lh5vem7qgqx" path="res://src/levels/level_components/level switcher/level_switcher_back2start.gd" id="6_wb3y1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ror3m"]
@@ -501,9 +502,32 @@ LEVEL"
 uppercase = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Map-temp" type="Node" parent="Objects" unique_id=622612950]
+[node name="Checkpoint" type="Node" parent="Objects" unique_id=2113851868]
 
-[node name="Gasmap" type="Sprite2D" parent="Objects/Map-temp" unique_id=691716585]
+[node name="Checkpoint" parent="Objects/Checkpoint" unique_id=673845731 instance=ExtResource("6_ror3m")]
+position = Vector2(-629, 4415)
+
+[node name="Checkpoint2" parent="Objects/Checkpoint" unique_id=159687305 instance=ExtResource("6_ror3m")]
+position = Vector2(786, 2161)
+
+[node name="Checkpoint3" parent="Objects/Checkpoint" unique_id=767152103 instance=ExtResource("6_ror3m")]
+position = Vector2(-1292, 1601)
+
+[node name="Checkpoint4" parent="Objects/Checkpoint" unique_id=683622517 instance=ExtResource("6_ror3m")]
+position = Vector2(-3167, -85)
+
+[node name="Checkpoint5" parent="Objects/Checkpoint" unique_id=2035423409 instance=ExtResource("6_ror3m")]
+position = Vector2(1878, -304)
+
+[node name="Checkpoint6" parent="Objects/Checkpoint" unique_id=919223871 instance=ExtResource("6_ror3m")]
+position = Vector2(-1746, -2032)
+
+[node name="Checkpoint7" parent="Objects/Checkpoint" unique_id=20725448 instance=ExtResource("6_ror3m")]
+position = Vector2(138, 1312)
+
+[node name="Map-temp" type="Node" parent="." unique_id=622612950]
+
+[node name="Gasmap" type="Sprite2D" parent="Map-temp" unique_id=691716585]
 z_index = -2
 position = Vector2(-378, 669)
 scale = Vector2(10, 10)

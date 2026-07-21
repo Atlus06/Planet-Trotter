@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bl3eimwjrku7e" path="res://src/levels/level_components/level switcher/level_switcher_lvl4.gd" id="6_8x25v"]
 [ext_resource type="Script" uid="uid://d1lh5vem7qgqx" path="res://src/levels/level_components/level switcher/level_switcher_back2start.gd" id="6_doq7l"]
 [ext_resource type="Texture2D" uid="uid://dh3mb45l8mkjb" path="res://Assets/Level Designs/frozenmap.png" id="7_53ift"]
+[ext_resource type="PackedScene" uid="uid://c22370y85xjbx" path="res://src/levels/level_components/checkpoint/checkpoint.tscn" id="7_ap0ye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_53ift"]
 texture = ExtResource("2_53ift")
@@ -405,9 +406,23 @@ LEVEL"
 uppercase = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Map-temp" type="Node" parent="Objects" unique_id=622612950]
+[node name="Checkpoint" type="Node" parent="Objects" unique_id=1007174925]
 
-[node name="Frozenmap" type="Sprite2D" parent="Objects/Map-temp" unique_id=447668008]
+[node name="Checkpoint" parent="Objects/Checkpoint" unique_id=673845731 instance=ExtResource("7_ap0ye")]
+position = Vector2(-3432, 3168)
+
+[node name="Checkpoint2" parent="Objects/Checkpoint" unique_id=1720167053 instance=ExtResource("7_ap0ye")]
+position = Vector2(-41, 847)
+
+[node name="Checkpoint3" parent="Objects/Checkpoint" unique_id=387023113 instance=ExtResource("7_ap0ye")]
+position = Vector2(1228, -1182)
+
+[node name="Checkpoint4" parent="Objects/Checkpoint" unique_id=400332452 instance=ExtResource("7_ap0ye")]
+position = Vector2(2033, -2766)
+
+[node name="Map-temp" type="Node" parent="." unique_id=622612950]
+
+[node name="Frozenmap" type="Sprite2D" parent="Map-temp" unique_id=447668008]
 z_index = -2
 position = Vector2(-39, 317)
 scale = Vector2(10, 10)

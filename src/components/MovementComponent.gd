@@ -100,7 +100,7 @@ func dash():
 	dash_timer.start()
 	GameSignals.player_dashed.emit()
 	
-	var dash_dir = Vector2(-direction,-Ydirection)
+	var dash_dir = Vector2(-direction,Ydirection)
 	if dash_dir == Vector2(0,0):
 		dash_dir = Vector2(0,1)
 	body.velocity = dash_dir * dash_velo

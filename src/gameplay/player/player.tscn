@@ -11,10 +11,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88kja"]
 size = Vector2(330, 614)
 
-[node name="Player" type="CharacterBody2D" unique_id=1113507717]
+[node name="Player" type="CharacterBody2D" unique_id=1113507717 groups=["Player"]]
 scale = Vector2(0.14, 0.14)
-collision_layer = 7
-collision_mask = 7
+collision_layer = 15
+collision_mask = 15
 script = ExtResource("1_cvnsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1227844510]

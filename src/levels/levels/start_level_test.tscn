@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bron0wumjmfk4"]
 
-[ext_resource type="Script" uid="uid://dmxysk6eh66gg" path="res://src/levels/level_components/start_level_info_component.gd" id="1_dygjl"]
+[ext_resource type="Script" uid="uid://dmxysk6eh66gg" path="res://src/levels/level_info/start_level_info_component.gd" id="1_dygjl"]
 [ext_resource type="Texture2D" uid="uid://djkc843pi3x8a" path="res://Assets/meadow_tilemap.png" id="1_t1o6o"]
 [ext_resource type="PackedScene" uid="uid://doi2h56o46e1t" path="res://src/gameplay/interactables/collectibles.tscn" id="4_538ra"]
 [ext_resource type="PackedScene" uid="uid://euo5evp86ctc" path="res://src/levels/level_components/level switcher/level_switcher.tscn" id="5_po03k"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bhfjny70283v0" path="res://src/levels/level_components/level switcher/level_switcher_lvl3.gd" id="7_vs5xf"]
 [ext_resource type="Script" uid="uid://bl3eimwjrku7e" path="res://src/levels/level_components/level switcher/level_switcher_lvl4.gd" id="8_up1c8"]
 [ext_resource type="Script" uid="uid://bk4ss1frttj2j" path="res://src/levels/level_components/level switcher/level_switcher_lvl5.gd" id="9_dkyg8"]
+[ext_resource type="PackedScene" uid="uid://c22370y85xjbx" path="res://src/levels/level_components/checkpoint/checkpoint.tscn" id="10_vs5xf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t1o6o"]
 texture = ExtResource("1_t1o6o")
@@ -216,7 +217,7 @@ scale = Vector2(0.6, 0.6)
 [node name="LevelSwitch" type="Node" parent="Objects" unique_id=1316987309]
 
 [node name="LevelSwitcher" parent="Objects/LevelSwitch" unique_id=326202995 instance=ExtResource("5_po03k")]
-position = Vector2(-1667, -166)
+position = Vector2(-1550, -166)
 script = ExtResource("6_ef8id")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/LevelSwitch/LevelSwitcher" unique_id=1871475571]
@@ -233,7 +234,7 @@ One"
 metadata/_edit_use_anchors_ = true
 
 [node name="LevelSwitcher2" parent="Objects/LevelSwitch" unique_id=1517291134 instance=ExtResource("5_po03k")]
-position = Vector2(-1915, -169)
+position = Vector2(-210, -1682)
 script = ExtResource("6_40o11")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/LevelSwitch/LevelSwitcher2" unique_id=157421704]
@@ -250,7 +251,7 @@ Two"
 metadata/_edit_use_anchors_ = true
 
 [node name="LevelSwitcher3" parent="Objects/LevelSwitch" unique_id=1768713905 instance=ExtResource("5_po03k")]
-position = Vector2(-2189, -168)
+position = Vector2(1370, -1751)
 script = ExtResource("7_vs5xf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/LevelSwitch/LevelSwitcher3" unique_id=1379243687]
@@ -267,7 +268,7 @@ Three"
 metadata/_edit_use_anchors_ = true
 
 [node name="LevelSwitcher4" parent="Objects/LevelSwitch" unique_id=684782544 instance=ExtResource("5_po03k")]
-position = Vector2(-2453, -168)
+position = Vector2(4356, -2327)
 script = ExtResource("8_up1c8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/LevelSwitch/LevelSwitcher4" unique_id=762301677]
@@ -284,7 +285,7 @@ Four"
 metadata/_edit_use_anchors_ = true
 
 [node name="LevelSwitcher5" parent="Objects/LevelSwitch" unique_id=1492917912 instance=ExtResource("5_po03k")]
-position = Vector2(-2746, -170)
+position = Vector2(240, -2686)
 script = ExtResource("9_dkyg8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/LevelSwitch/LevelSwitcher5" unique_id=556740003]
@@ -299,6 +300,20 @@ text = "To
 Level
 Five"
 metadata/_edit_use_anchors_ = true
+
+[node name="Checkpoints" type="Node" parent="Objects" unique_id=584518255]
+
+[node name="Checkpoint" parent="Objects/Checkpoints" unique_id=673845731 instance=ExtResource("10_vs5xf")]
+position = Vector2(0, 78)
+
+[node name="Checkpoint2" parent="Objects/Checkpoints" unique_id=1820248528 instance=ExtResource("10_vs5xf")]
+position = Vector2(-1387, -1006)
+
+[node name="Checkpoint3" parent="Objects/Checkpoints" unique_id=310079067 instance=ExtResource("10_vs5xf")]
+position = Vector2(713, -1439)
+
+[node name="Checkpoint4" parent="Objects/Checkpoints" unique_id=1784326391 instance=ExtResource("10_vs5xf")]
+position = Vector2(3589, 71)
 
 [node name="temp" type="Node" parent="." unique_id=1520839618]
 

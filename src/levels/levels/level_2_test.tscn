@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://euo5evp86ctc" path="res://src/levels/level_components/level switcher/level_switcher.tscn" id="4_hpkub"]
 [ext_resource type="Script" uid="uid://bhfjny70283v0" path="res://src/levels/level_components/level switcher/level_switcher_lvl3.gd" id="6_aq88e"]
 [ext_resource type="Script" uid="uid://d1lh5vem7qgqx" path="res://src/levels/level_components/level switcher/level_switcher_back2start.gd" id="6_ycp1o"]
+[ext_resource type="PackedScene" uid="uid://c22370y85xjbx" path="res://src/levels/level_components/checkpoint/checkpoint.tscn" id="7_d046y"]
 [ext_resource type="Texture2D" uid="uid://ctchlb1wdvwwn" path="res://Assets/Level Designs/rockmap.png" id="7_qqsn8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d046y"]
@@ -289,9 +290,29 @@ LEVEL"
 uppercase = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Map-temp" type="Node" parent="Objects" unique_id=622612950]
+[node name="Checkpoint" type="Node" parent="Objects" unique_id=1439847467]
 
-[node name="Rockmap" type="Sprite2D" parent="Objects/Map-temp" unique_id=584657185]
+[node name="Checkpoint" parent="Objects/Checkpoint" unique_id=673845731 instance=ExtResource("7_d046y")]
+position = Vector2(-2910, 3378)
+
+[node name="Checkpoint2" parent="Objects/Checkpoint" unique_id=1298710408 instance=ExtResource("7_d046y")]
+position = Vector2(1589, 3068)
+
+[node name="Checkpoint3" parent="Objects/Checkpoint" unique_id=1092838414 instance=ExtResource("7_d046y")]
+position = Vector2(2954, -526)
+
+[node name="Checkpoint4" parent="Objects/Checkpoint" unique_id=1645784769 instance=ExtResource("7_d046y")]
+position = Vector2(-925, 1872)
+
+[node name="Checkpoint5" parent="Objects/Checkpoint" unique_id=771807261 instance=ExtResource("7_d046y")]
+position = Vector2(-658, -545)
+
+[node name="Checkpoint6" parent="Objects/Checkpoint" unique_id=1774432608 instance=ExtResource("7_d046y")]
+position = Vector2(-1860, -2032)
+
+[node name="Map-temp" type="Node" parent="." unique_id=622612950]
+
+[node name="Rockmap" type="Sprite2D" parent="Map-temp" unique_id=584657185]
 z_index = -2
 position = Vector2(37, 221)
 scale = Vector2(10, 10)

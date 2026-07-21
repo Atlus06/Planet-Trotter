@@ -10,6 +10,8 @@ func _ready() -> void:
 	
 	GameSignals.leaving_level.connect(switch_level)
 	GameSignals.player_spawn.connect(set_player_pos)
+	GameSignals.player_died.connect(on_player_death)
+	GameSignals.back_to_checkpoint.connect(reset_to_checkpoint)
 	
 
 func load_start():
@@ -44,6 +46,17 @@ func switch_level(new_level_path: String):
 
 func set_player_pos(marker_location: Vector2):
 	player.global_position = marker_location
+	GameSignals.reset_player_health.emit(null)
+	if player.global_position == marker_location:
+		GameSignals.end_transition.emit()
+
+func on_player_death(respawn_location):
+	GameSignals.start_transition.emit()
 	
+	set_player_pos(respawn_location)
+
+func reset_to_checkpoint(marker_location: Vector2):
+	GameSignals.start_transition.emit()
+	player.global_position = marker_location
 	if player.global_position == marker_location:
 		GameSignals.end_transition.emit()
