@@ -8,6 +8,7 @@ class_name level_2_info extends Node
 
 func _ready() -> void:
 	player_spawn_pos = player_spawn.global_position
+	GameVariables.last_checkpoint_pos = player_spawn_pos
 	
 	GameSignals.player_spawn.emit(player_spawn_pos)
 	GameSignals.level_max_collectable.emit(max_collectable_number)

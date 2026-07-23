@@ -6,8 +6,7 @@ extends Node
 
 
 func _ready() -> void:
-	load_start()
-	
+	GameSignals.start_game.connect(load_start)
 	GameSignals.leaving_level.connect(switch_level)
 	GameSignals.player_spawn.connect(set_player_pos)
 	GameSignals.player_died.connect(on_player_death)
@@ -22,6 +21,8 @@ func load_start():
 		if start_level:
 			var new_level_instance = start_level.instantiate()
 			LevelRoot.call_deferred("add_child", new_level_instance)
+	
+	set_player_pos(GameVariables.last_checkpoint_pos)
 	
 	GameSignals.end_transition.emit()
 

@@ -1,9 +1,15 @@
 class_name Game_Signals extends Node
 
 #Game Mechanics
+	#Start Game
+signal start_game
+
 	#Moiving btwn levels
 signal change_level
 signal leaving_level(next_level_path)
+
+	#moving btwn menus
+signal show_main_menu
 
 	#Player Spawn Location
 signal player_spawn(marker_location)

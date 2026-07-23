@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://npfbdr5f26fv" path="res://src/ui/transition_root.gd" id="4_xijci"]
 [ext_resource type="Script" uid="uid://dap6qq3fttu57" path="res://src/ui/pause_root.gd" id="4_yuwmb"]
 [ext_resource type="Script" uid="uid://daneexbwbd4bh" path="res://src/ui/hud_root.gd" id="5_8l6nt"]
+[ext_resource type="Script" uid="uid://cxy1ck2bw03qm" path="res://src/ui/main_menu_root.gd" id="7_uhhkv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_op4kn"]
 bg_color = Color(0.3137255, 0.75686276, 0, 1)
@@ -35,6 +36,7 @@ script = ExtResource("4_op4kn")
 
 [node name="HudLayer" type="CanvasLayer" parent="UIController" unique_id=162979574]
 process_mode = 1
+layer = 10
 
 [node name="HudRoot" type="Control" parent="UIController/HudLayer" unique_id=430757144]
 layout_mode = 3
@@ -79,6 +81,7 @@ text = "Collectables Collected: 0 / 0"
 
 [node name="PauseLayer" type="CanvasLayer" parent="UIController" unique_id=1724595383]
 process_mode = 3
+layer = 20
 
 [node name="PauseRoot" type="Control" parent="UIController/PauseLayer" unique_id=464112283]
 layout_mode = 3
@@ -89,33 +92,149 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_yuwmb")
 
-[node name="PauseRect" type="ColorRect" parent="UIController/PauseLayer/PauseRoot" unique_id=491142039]
+[node name="PauseMenu" type="MarginContainer" parent="UIController/PauseLayer/PauseRoot" unique_id=642139419]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.096749805, 0, 0.60385346, 1)
+theme_override_constants/margin_left = 195
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 195
+theme_override_constants/margin_bottom = 25
 
-[node name="PauseLabel" type="Label" parent="UIController/PauseLayer/PauseRoot/PauseRect" unique_id=1394824622]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -53.0
-offset_top = -11.5
-offset_right = 53.0
-offset_bottom = 11.5
+[node name="PauseRect" type="ColorRect" parent="UIController/PauseLayer/PauseRoot/PauseMenu" unique_id=2016668316]
+layout_mode = 2
+color = Color(0, 0.4745098, 0.8392157, 0.9607843)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIController/PauseLayer/PauseRoot/PauseMenu" unique_id=1811045151]
+layout_mode = 2
+theme_override_constants/separation = -100
+
+[node name="TitleLabel" type="Label" parent="UIController/PauseLayer/PauseRoot/PauseMenu/VBoxContainer" unique_id=675160117]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "Pause Menu"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIController/PauseLayer/PauseRoot/PauseMenu/VBoxContainer" unique_id=1469271417]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 10
+
+[node name="ResumeButton" type="Button" parent="UIController/PauseLayer/PauseRoot/PauseMenu/VBoxContainer/VBoxContainer" unique_id=1943802279]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="UIController/PauseLayer/PauseRoot/PauseMenu/VBoxContainer/VBoxContainer" unique_id=1241415764]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+
+[node name="SaveQuitButton" type="Button" parent="UIController/PauseLayer/PauseRoot/PauseMenu/VBoxContainer/VBoxContainer" unique_id=428777477]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Save & Quit"
+
+[node name="MainMenuLayer" type="CanvasLayer" parent="UIController" unique_id=1808132384]
+layer = 60
+
+[node name="MainMenuRoot" type="Control" parent="UIController/MainMenuLayer" unique_id=748804063]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 78
-text = "Game Paused"
+mouse_filter = 2
+script = ExtResource("7_uhhkv")
+
+[node name="BackgroundRect" type="ColorRect" parent="UIController/MainMenuLayer/MainMenuRoot" unique_id=40117088]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.54896253, 0.5489626, 0.5489625, 1)
+
+[node name="MainMenu" type="MarginContainer" parent="UIController/MainMenuLayer/MainMenuRoot" unique_id=688313024]
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 60
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UIController/MainMenuLayer/MainMenuRoot/MainMenu" unique_id=2057248557]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer" unique_id=785524605]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer/VBoxContainer" unique_id=1316656880]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 72
+text = "Planet Trotter"
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer/VBoxContainer" unique_id=1004144069]
+layout_mode = 2
+size_flags_vertical = 6
+mouse_filter = 2
+
+[node name="StartButton" type="Button" parent="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1583573127]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Start
+"
+
+[node name="SettingsButton" type="Button" parent="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1214610213]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Settings
+"
+
+[node name="QuitButton" type="Button" parent="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=987092766]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="VersionLabel" type="Label" parent="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer/VBoxContainer" unique_id=1210578558]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 18
+text = "ver 0 - Pre-Alpha"
+
+[node name="TextureRect" type="TextureRect" parent="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer" unique_id=211030450]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="TransitionLayer" type="CanvasLayer" parent="UIController" unique_id=1714825914]
 process_mode = 3
+layer = 100
 
 [node name="TransitionRoot" type="Control" parent="UIController/TransitionLayer" unique_id=464073076]
 layout_mode = 3
@@ -124,6 +243,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("4_xijci")
 
 [node name="TransitionRect" type="ColorRect" parent="UIController/TransitionLayer/TransitionRoot" unique_id=1602870774]
@@ -153,6 +273,7 @@ text = "Loading..."
 
 [node name="DebugLayer" type="CanvasLayer" parent="." unique_id=624274306]
 process_mode = 3
+layer = 128
 
 [node name="DebugRoot" type="Control" parent="DebugLayer" unique_id=1701487534]
 layout_mode = 3
@@ -161,3 +282,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="UIController/PauseLayer/PauseRoot/PauseMenu/VBoxContainer/VBoxContainer/ResumeButton" to="UIController/PauseLayer/PauseRoot" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="UIController/PauseLayer/PauseRoot/PauseMenu/VBoxContainer/VBoxContainer/SettingsButton" to="UIController/PauseLayer/PauseRoot" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="UIController/PauseLayer/PauseRoot/PauseMenu/VBoxContainer/VBoxContainer/SaveQuitButton" to="UIController/PauseLayer/PauseRoot" method="_on_save_quit_button_pressed"]
+[connection signal="pressed" from="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer/VBoxContainer/VBoxContainer/StartButton" to="UIController/MainMenuLayer/MainMenuRoot" method="_on_start_button_pressed"]
+[connection signal="pressed" from="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer/VBoxContainer/VBoxContainer/SettingsButton" to="UIController/MainMenuLayer/MainMenuRoot" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer/VBoxContainer/VBoxContainer/QuitButton" to="UIController/MainMenuLayer/MainMenuRoot" method="_on_quit_button_pressed"]
