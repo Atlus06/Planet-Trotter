@@ -8,8 +8,10 @@ signal start_game
 signal change_level
 signal leaving_level(next_level_path)
 
-	#moving btwn menus
+	#important misc stuff
 signal show_main_menu
+signal save_game
+signal load_game
 
 	#Player Spawn Location
 signal player_spawn(marker_location)

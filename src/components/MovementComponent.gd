@@ -6,7 +6,7 @@ class_name Movement_Component extends Node
 
 @export var body: CharacterBody2D
 @export var speed := 500.0
-@export var jump_velo := 1000.0
+@export var jump_velo := 1500.0
 @export var wall_push_velo := 950.0
 @export var wall_jump_velo := 1200.0
 @export var dash_velo := -1500.0
@@ -14,6 +14,7 @@ class_name Movement_Component extends Node
 var direction: float
 
 var jumping := false
+var jump_released := false
 var Ydirection: float
 var CanJump := true
 var CanDJump := false
@@ -62,6 +63,9 @@ func update(delta: float) -> void:
 	#jump
 	if jumping:
 		jump()
+	elif jump_released:
+		if CanJump or CanDJump:
+			body.velocity.y = 10
 	
 	#dash
 	if wants_dash and CanDash == true:
@@ -80,14 +84,15 @@ func update(delta: float) -> void:
 
 
 func jump():
-	if jumping and CanJump:
+	if CanJump:
 		body.velocity.y = -jump_velo
 		CanJump = false
 		#print("normal jump")
-	elif jumping and CanDJump and not body.is_on_floor():
+	elif CanDJump and not body.is_on_floor():
 		body.velocity.y = -jump_velo
 		#print("double jump")
 		CanDJump = false
+	
 
 	if body.is_on_floor() == false and CanJump and coyote_timer.is_stopped():
 		coyote_timer.start()

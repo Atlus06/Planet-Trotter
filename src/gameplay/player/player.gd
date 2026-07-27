@@ -7,6 +7,9 @@ class_name Player extends CharacterBody2D
 @onready var camera_component: Camera_Component = %Camera_Component
 @onready var health_component: Health_Component = %Health_Component
 
+var player_health: int
+var player_position: Vector2
+
 #func _ready() -> void:
 	#collision_shape_2d.disabled = true
 	#await get_tree().create_timer(0.5).timeout
@@ -21,8 +24,9 @@ func _physics_process(delta: float) -> void:
 	movement_component.direction = input_component.move_direction
 	movement_component.Ydirection = input_component.aim_direction
 	movement_component.jumping = input_component.jump_pressed
+	movement_component.jump_released = input_component.jump_released
 	movement_component.wants_dash = input_component.dash_pressed
-	movement_component.wants_slide = input_component.slide_pressed
+	#movement_component.crouch_pressed = input_component.wants_crouch
 	#movement_component.handle_slide()
 	movement_component.update(delta)
 	
@@ -40,3 +44,6 @@ func _physics_process(delta: float) -> void:
 	if input_component.to_checkpoint_pressed == true:
 		GameSignals.back_to_checkpoint.emit(GameVariables.last_checkpoint_pos)
 	
+	#Player_info
+	player_health = health_component.current_health
+	player_position = GameVariables.last_checkpoint_pos

@@ -21,7 +21,9 @@ func show_main_menu():
 
 func _on_start_button_pressed() -> void:
 	#print("Pressed Start Game")
+	
 	GameSignals.start_game.emit()
+	GameSignals.load_game.emit()
 	background_rect.visible = false
 	main_menu.visible = false
 
@@ -32,4 +34,5 @@ func _on_settings_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	#print("Pressed Quit Game")
+	GameSignals.save_game.emit()
 	get_tree().quit()

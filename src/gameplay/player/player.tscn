@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://d1710yeed7ers" path="res://src/components/GravityComponent.gd" id="5_fkybt"]
 [ext_resource type="Script" uid="uid://cvew43pwirayn" path="res://src/components/camera_component.gd" id="6_x3wgy"]
 [ext_resource type="Script" uid="uid://c468vlif3y6ll" path="res://src/components/health_component.gd" id="7_kjyqo"]
+[ext_resource type="Script" uid="uid://53rqyltc5pfa" path="res://src/components/animation_component.gd" id="8_uia4o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88kja"]
 size = Vector2(330, 614)
@@ -76,6 +77,11 @@ metadata/_custom_type_script = "uid://cvew43pwirayn"
 unique_name_in_owner = true
 script = ExtResource("7_kjyqo")
 metadata/_custom_type_script = "uid://c468vlif3y6ll"
+
+[node name="Animation_Component" type="Node" parent="." unique_id=398251811]
+unique_name_in_owner = true
+script = ExtResource("8_uia4o")
+metadata/_custom_type_script = "uid://53rqyltc5pfa"
 
 [connection signal="timeout" from="DashTimer" to="Movement_Component" method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashCooldown" to="Movement_Component" method="_on_dash_cooldown_timeout"]

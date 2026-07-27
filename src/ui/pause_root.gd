@@ -32,7 +32,13 @@ func unpause_game():
 	get_tree().paused = false
 
 
+
 func _on_resume_button_pressed() -> void:
+	unpause_game()
+
+
+func _on_back_2_checkpoint_button_pressed() -> void:
+	GameSignals.back_to_checkpoint.emit(GameVariables.last_checkpoint_pos)
 	unpause_game()
 
 
@@ -44,6 +50,7 @@ func _on_save_quit_button_pressed() -> void:
 	#GameSignals.start_transition.emit()
 	
 	#code to save game
+	GameSignals.save_game.emit()
 	
 	await get_tree().create_timer(0.5).timeout
 	

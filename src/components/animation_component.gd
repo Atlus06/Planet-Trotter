@@ -1,0 +1,2 @@
+class_name Animation_Component
+extends Node
