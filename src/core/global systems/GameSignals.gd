@@ -11,7 +11,9 @@ signal leaving_level(next_level_path)
 	#important misc stuff
 signal show_main_menu
 signal save_game
+signal save_settings
 signal load_game
+signal load_settings
 
 	#Player Spawn Location
 signal player_spawn(marker_location)

@@ -7,7 +7,9 @@
 [ext_resource type="Script" uid="uid://npfbdr5f26fv" path="res://src/ui/transition_root.gd" id="4_xijci"]
 [ext_resource type="Script" uid="uid://dap6qq3fttu57" path="res://src/ui/pause_root.gd" id="4_yuwmb"]
 [ext_resource type="Script" uid="uid://daneexbwbd4bh" path="res://src/ui/hud_root.gd" id="5_8l6nt"]
+[ext_resource type="Script" uid="uid://c6j6gfat1fbr7" path="res://src/ui/settings_root.gd" id="7_4i5e7"]
 [ext_resource type="Script" uid="uid://cxy1ck2bw03qm" path="res://src/ui/main_menu_root.gd" id="7_uhhkv"]
+[ext_resource type="PackedScene" uid="uid://cejcg1aoefqkn" path="res://src/ui/rebind_menu.tscn" id="8_q3f53"]
 [ext_resource type="Script" uid="uid://dpi2ylem22hue" path="res://src/core/main_game/saver_loader.gd" id="9_1flk8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_op4kn"]
@@ -104,7 +106,7 @@ grow_vertical = 2
 theme_override_constants/margin_left = 195
 theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 195
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_bottom = 60
 
 [node name="PauseRect" type="ColorRect" parent="UIController/PauseLayer/PauseRoot/PauseMenu" unique_id=2016668316]
 layout_mode = 2
@@ -239,6 +241,115 @@ text = "ver 0 - Pre-Alpha"
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="SettingsMenu2" type="CanvasLayer" parent="UIController" unique_id=338440705]
+process_mode = 3
+layer = 75
+
+[node name="SettingsMenu" type="Control" parent="UIController/SettingsMenu2" unique_id=983126831]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_4i5e7")
+
+[node name="MarginContainer" type="MarginContainer" parent="UIController/SettingsMenu2/SettingsMenu" unique_id=293536146]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 15
+
+[node name="SettingsRect" type="ColorRect" parent="UIController/SettingsMenu2/SettingsMenu/MarginContainer" unique_id=693274017]
+layout_mode = 2
+color = Color(0.16078432, 0.13725491, 0.23529412, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIController/SettingsMenu2/SettingsMenu/MarginContainer" unique_id=432885990]
+layout_mode = 2
+theme_override_constants/separation = 36
+
+[node name="Title" type="Label" parent="UIController/SettingsMenu2/SettingsMenu/MarginContainer/VBoxContainer" unique_id=165235209]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 84
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="UIController/SettingsMenu2/SettingsMenu/MarginContainer/VBoxContainer" unique_id=1695247756]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UIController/SettingsMenu2/SettingsMenu/MarginContainer/VBoxContainer" unique_id=2099387801]
+layout_mode = 2
+
+[node name="ToRebindMenu" type="Button" parent="UIController/SettingsMenu2/SettingsMenu/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1678721220]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 32
+text = "Rebind Controls"
+
+[node name="DoneButton" type="Button" parent="UIController/SettingsMenu2/SettingsMenu" unique_id=893262046]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = 193.0
+offset_right = 45.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Done
+"
+
+[node name="RebindMenu" parent="UIController/SettingsMenu2/SettingsMenu" unique_id=2051289825 instance=ExtResource("8_q3f53")]
+layout_mode = 1
+
+[node name="DoneButton2" type="Button" parent="UIController/SettingsMenu2/SettingsMenu/RebindMenu" unique_id=77653649]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = 259.0
+offset_right = 80.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Done
+"
+
+[node name="ResetKeyButton" type="Button" parent="UIController/SettingsMenu2/SettingsMenu/RebindMenu" unique_id=367688623]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = 259.0
+offset_right = -22.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Reset"
+
 [node name="TransitionLayer" type="CanvasLayer" parent="UIController" unique_id=1714825914]
 process_mode = 3
 layer = 100
@@ -303,3 +414,7 @@ script = ExtResource("9_1flk8")
 [connection signal="pressed" from="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer/VBoxContainer/VBoxContainer/StartButton" to="UIController/MainMenuLayer/MainMenuRoot" method="_on_start_button_pressed"]
 [connection signal="pressed" from="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer/VBoxContainer/VBoxContainer/SettingsButton" to="UIController/MainMenuLayer/MainMenuRoot" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer/VBoxContainer/VBoxContainer/QuitButton" to="UIController/MainMenuLayer/MainMenuRoot" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="UIController/SettingsMenu2/SettingsMenu/MarginContainer/VBoxContainer/VBoxContainer2/ToRebindMenu" to="UIController/SettingsMenu2/SettingsMenu" method="_on_to_rebind_menu_pressed"]
+[connection signal="pressed" from="UIController/SettingsMenu2/SettingsMenu/DoneButton" to="UIController/PauseLayer/PauseRoot" method="_on_done_button_pressed"]
+[connection signal="pressed" from="UIController/SettingsMenu2/SettingsMenu/RebindMenu/DoneButton2" to="UIController/SettingsMenu2/SettingsMenu" method="_on_done_button_pressed"]
+[connection signal="pressed" from="UIController/SettingsMenu2/SettingsMenu/RebindMenu/ResetKeyButton" to="UIController/SettingsMenu2/SettingsMenu" method="_on_reset_key_button_pressed"]

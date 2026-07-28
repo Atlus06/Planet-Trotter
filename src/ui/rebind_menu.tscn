@@ -1,0 +1,229 @@
+[gd_scene format=3 uid="uid://cejcg1aoefqkn"]
+
+[ext_resource type="Script" uid="uid://bq4leai8f8x0c" path="res://input_remapping_button.gd" id="1_fsciu"]
+
+[node name="RebindMenu" type="Control" unique_id=2051289825]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1646393758]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3958882, 0.20751104, 0.7537693, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=624796027]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 90
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=385757325]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1464584690]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 72
+text = "Rebind Controls"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer" unique_id=258673846]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2063875773]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Player Movement"
+uppercase = true
+
+[node name="Movement Container" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1108941833]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Movement Container" unique_id=1572406113]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Movement Container/VBoxContainer" unique_id=876336451]
+layout_mode = 2
+theme_override_constants/separation = 125
+
+[node name="Control" type="Label" parent="MarginContainer/VBoxContainer/Movement Container/VBoxContainer/HBoxContainer" unique_id=620274118]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
+text = "Jump"
+
+[node name="InputReMapButton" type="Button" parent="MarginContainer/VBoxContainer/Movement Container/VBoxContainer/HBoxContainer" unique_id=557968294]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_fsciu")
+action = "jump"
+metadata/_custom_type_script = "uid://bq4leai8f8x0c"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Movement Container/VBoxContainer" unique_id=1927665403]
+layout_mode = 2
+theme_override_constants/separation = 125
+
+[node name="Control" type="Label" parent="MarginContainer/VBoxContainer/Movement Container/VBoxContainer/HBoxContainer2" unique_id=1852400857]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
+text = "Move Left"
+
+[node name="InputReMapButton" type="Button" parent="MarginContainer/VBoxContainer/Movement Container/VBoxContainer/HBoxContainer2" unique_id=1166534713]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_fsciu")
+action = "move_left"
+metadata/_custom_type_script = "uid://bq4leai8f8x0c"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Movement Container/VBoxContainer" unique_id=1108756897]
+layout_mode = 2
+theme_override_constants/separation = 125
+
+[node name="Control" type="Label" parent="MarginContainer/VBoxContainer/Movement Container/VBoxContainer/HBoxContainer3" unique_id=580627425]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
+text = "Move Right"
+
+[node name="InputReMapButton" type="Button" parent="MarginContainer/VBoxContainer/Movement Container/VBoxContainer/HBoxContainer3" unique_id=322076721]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_fsciu")
+action = "move_right"
+metadata/_custom_type_script = "uid://bq4leai8f8x0c"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Movement Container/VBoxContainer" unique_id=2083210851]
+layout_mode = 2
+theme_override_constants/separation = 125
+
+[node name="Control" type="Label" parent="MarginContainer/VBoxContainer/Movement Container/VBoxContainer/HBoxContainer4" unique_id=536636261]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
+text = "Dash"
+
+[node name="InputReMapButton" type="Button" parent="MarginContainer/VBoxContainer/Movement Container/VBoxContainer/HBoxContainer4" unique_id=2144186104]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_fsciu")
+action = "dash"
+metadata/_custom_type_script = "uid://bq4leai8f8x0c"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Movement Container/VBoxContainer" unique_id=1641327505]
+layout_mode = 2
+theme_override_constants/separation = 125
+
+[node name="Control" type="Label" parent="MarginContainer/VBoxContainer/Movement Container/VBoxContainer/HBoxContainer5" unique_id=31983474]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
+text = "Crouch <- Doesn't Work"
+
+[node name="InputReMapButton" type="Button" parent="MarginContainer/VBoxContainer/Movement Container/VBoxContainer/HBoxContainer5" unique_id=3595504]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_fsciu")
+action = "crouch"
+metadata/_custom_type_script = "uid://bq4leai8f8x0c"
+
+[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1671607872]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1946890672]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Camera Controls"
+uppercase = true
+
+[node name="Camera Container" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1125178682]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Camera Container" unique_id=1090704835]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Camera Container/VBoxContainer" unique_id=927694245]
+layout_mode = 2
+theme_override_constants/separation = 125
+
+[node name="Control" type="Label" parent="MarginContainer/VBoxContainer/Camera Container/VBoxContainer/HBoxContainer" unique_id=1374870064]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
+text = "Look Up"
+
+[node name="InputReMapButton" type="Button" parent="MarginContainer/VBoxContainer/Camera Container/VBoxContainer/HBoxContainer" unique_id=356543739]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_fsciu")
+action = "look_up"
+metadata/_custom_type_script = "uid://bq4leai8f8x0c"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Camera Container/VBoxContainer" unique_id=1448435173]
+layout_mode = 2
+theme_override_constants/separation = 125
+
+[node name="Control" type="Label" parent="MarginContainer/VBoxContainer/Camera Container/VBoxContainer/HBoxContainer4" unique_id=554560077]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
+text = "Look Down"
+
+[node name="InputReMapButton" type="Button" parent="MarginContainer/VBoxContainer/Camera Container/VBoxContainer/HBoxContainer4" unique_id=398868776]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_fsciu")
+action = "look_down"
+metadata/_custom_type_script = "uid://bq4leai8f8x0c"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Camera Container/VBoxContainer" unique_id=1614214213]
+layout_mode = 2
+theme_override_constants/separation = 125
+
+[node name="Control" type="Label" parent="MarginContainer/VBoxContainer/Camera Container/VBoxContainer/HBoxContainer2" unique_id=1016932880]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
+text = "Look Left"
+
+[node name="InputReMapButton" type="Button" parent="MarginContainer/VBoxContainer/Camera Container/VBoxContainer/HBoxContainer2" unique_id=1125073437]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_fsciu")
+action = "look_left"
+metadata/_custom_type_script = "uid://bq4leai8f8x0c"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Camera Container/VBoxContainer" unique_id=468932913]
+layout_mode = 2
+theme_override_constants/separation = 125
+
+[node name="Control" type="Label" parent="MarginContainer/VBoxContainer/Camera Container/VBoxContainer/HBoxContainer3" unique_id=1720921468]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
+text = "Look Right"
+
+[node name="InputReMapButton" type="Button" parent="MarginContainer/VBoxContainer/Camera Container/VBoxContainer/HBoxContainer3" unique_id=1678582603]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_fsciu")
+action = "look_right"
+metadata/_custom_type_script = "uid://bq4leai8f8x0c"
