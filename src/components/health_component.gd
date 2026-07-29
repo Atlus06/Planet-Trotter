@@ -32,12 +32,12 @@ func _process(delta: float) -> void:
 	
 	if current_health <= 0:
 		GameSignals.player_died.emit(GameVariables.last_checkpoint_pos)
-		print("You Died")
+		#print("You Died")
 
 
 func health_update(_health) -> void:
 	current_health = clamp(current_health, 0, 30)
-	print("Health: %d / %d" %[current_health, max_health])
+	#print("Health: %d / %d" %[current_health, max_health])
 
 func player_hurt(damage) -> void:
 	current_health -= damage

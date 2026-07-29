@@ -26,21 +26,14 @@ var is_dashing := false
 var CanDash := true
 
 var wants_crouch := false
-var wants_slide := false
-var is_sliding := false
-var canslide := true
-var slide_speed: float
-var slide_stop_tres := 100.0
-var slide_deceleration := 50.0
-var initial_slide_velo := 1500.0
-var min_slide_tres := 200.0
 
-func update(delta: float) -> void:
+
+func update() -> void:
 	#if no body then no moevement
 	if body == null:
 		return
 	#skips everything to let dash finish
-	if is_dashing or is_sliding or is_wall_jumping:
+	if is_dashing or is_wall_jumping:
 		body.move_and_slide()
 		return
 	
@@ -52,6 +45,9 @@ func update(delta: float) -> void:
 		CanJump = true
 		CanDJump = true
 		CanDash = true
+	elif body.is_on_wall():
+		CanJump = true
+		#CanDJump = true
 	
 	
 	
@@ -64,7 +60,7 @@ func update(delta: float) -> void:
 	if jumping:
 		jump()
 	elif jump_released:
-		if CanJump or CanDJump:
+		if CanDJump and body.velocity.y < -100:
 			body.velocity.y = 10
 	
 	#dash
@@ -134,9 +130,6 @@ func handle_crouch() -> void:
 
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
-
-func stop_sliding() -> void:
-	is_sliding = false
 
 func _on_dash_cooldown_timeout() -> void:
 	CanDash = true

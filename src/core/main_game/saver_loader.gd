@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 #temp
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("TempSave"):
 		GameSignals.save_game.emit()
 	elif Input.is_action_just_pressed("TempLoad"):
@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 
 func save_game():
-	print("Game Saved")
+	#print("Game Saved")
 	
 	var saved_game: SavedGame = SavedGame.new()
 	
@@ -36,7 +36,7 @@ func save_game():
 	
 
 func load_game():
-	print("Game Loaded")
+	#print("Game Loaded")
 	
 	var saved_game: SavedGame = load("user://savegame.tres")
 	
@@ -47,7 +47,7 @@ func load_game():
 
 
 func save_settings():
-	print("Settings Saved")
+	#print("Settings Saved")
 	
 	var config = ConfigFile.new()
 	for action in ["move_left","move_right","jump","dash","crouch","look_up","look_down","look_left","look_right"]:
@@ -60,7 +60,7 @@ func save_settings():
 	get_tree().call_group("rebind_buttons", "update_display")
 
 func load_settings():
-	print("Settings Loaded")
+	#print("Settings Loaded")
 	
 	var config = ConfigFile.new()
 	var err = config.load("user://saved_settings.cfg")
