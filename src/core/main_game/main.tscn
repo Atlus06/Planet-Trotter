@@ -22,6 +22,26 @@ bg_color = Color(0.5883669, 0.3685397, 0, 1)
 process_mode = 3
 script = ExtResource("1_l4v7s")
 
+[node name="Utilities" type="Node" parent="." unique_id=1048666211]
+
+[node name="DebugLayer" type="CanvasLayer" parent="Utilities" unique_id=624274306]
+process_mode = 3
+layer = 128
+
+[node name="DebugRoot" type="Control" parent="Utilities/DebugLayer" unique_id=1701487534]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SaverLoader" type="Node" parent="Utilities" unique_id=1063337963]
+process_mode = 3
+process_priority = -1
+script = ExtResource("9_1flk8")
+
 [node name="Systems" type="Node" parent="." unique_id=952550901]
 script = ExtResource("2_xijci")
 
@@ -52,18 +72,41 @@ grow_vertical = 2
 script = ExtResource("5_8l6nt")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="UIController/HudLayer/HudRoot" unique_id=1382246861]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 10.0
-offset_right = 554.0
-offset_bottom = 139.0
+[node name="MarginContainer" type="MarginContainer" parent="UIController/HudLayer/HudRoot" unique_id=171797791]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 13
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UIController/HudLayer/HudRoot/VBoxContainer2" unique_id=1314685788]
+[node name="ColorRect" type="ColorRect" parent="UIController/HudLayer/HudRoot/MarginContainer" unique_id=320821286]
+process_mode = 3
+custom_minimum_size = Vector2(230, 230)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+color = Color(0.6156863, 0.6156863, 0.6156863, 0.19215687)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UIController/HudLayer/HudRoot/MarginContainer" unique_id=1082360264]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UIController/HudLayer/HudRoot/MarginContainer/HBoxContainer" unique_id=1382246861]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIController/HudLayer/HudRoot/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1314685788]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HealthBar" type="ProgressBar" parent="UIController/HudLayer/HudRoot/VBoxContainer2/VBoxContainer" unique_id=633488734]
+[node name="HealthBar" type="ProgressBar" parent="UIController/HudLayer/HudRoot/MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer" unique_id=633488734]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(540, 43)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/fill = SubResource("StyleBoxFlat_op4kn")
@@ -71,17 +114,34 @@ max_value = 30.0
 value = 30.0
 show_percentage = false
 
-[node name="DashChargeBar" type="ProgressBar" parent="UIController/HudLayer/HudRoot/VBoxContainer2/VBoxContainer" unique_id=1639324061]
+[node name="DashChargeBar" type="ProgressBar" parent="UIController/HudLayer/HudRoot/MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer" unique_id=1639324061]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(540, 43)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 22
 theme_override_styles/background = SubResource("StyleBoxFlat_8l6nt")
 
-[node name="CollectableCounter" type="Label" parent="UIController/HudLayer/HudRoot/VBoxContainer2" unique_id=1201828925]
+[node name="CollectableCounter" type="Label" parent="UIController/HudLayer/HudRoot/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1201828925]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(540, 34)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "Collectables Collected: 0 / 0"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIController/HudLayer/HudRoot/MarginContainer/HBoxContainer" unique_id=612604969]
+process_mode = 3
+custom_minimum_size = Vector2(230, 230)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="FPSLabel" type="Label" parent="UIController/HudLayer/HudRoot/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2086848590]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "FPS: "
 
 [node name="PauseLayer" type="CanvasLayer" parent="UIController" unique_id=1724595383]
 process_mode = 3
@@ -297,6 +357,46 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "Rebind Controls"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="UIController/SettingsMenu2/SettingsMenu/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1374076273]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UIController/SettingsMenu2/SettingsMenu/MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1426605871]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Show FPS"
+horizontal_alignment = 1
+
+[node name="FPSButton" type="Button" parent="UIController/SettingsMenu2/SettingsMenu/MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1795561233]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 27
+toggle_mode = true
+text = "OFF"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UIController/SettingsMenu2/SettingsMenu/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=976583824]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UIController/SettingsMenu2/SettingsMenu/MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=2135943323]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Fullscreen"
+horizontal_alignment = 1
+
+[node name="ScreenOptionButton" type="OptionButton" parent="UIController/SettingsMenu2/SettingsMenu/MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=375035991]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_count = 3
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Maximized"
+popup/item_1/id = 1
+popup/item_2/text = "Windowed"
+popup/item_2/id = 2
+
 [node name="DoneButton" type="Button" parent="UIController/SettingsMenu2/SettingsMenu" unique_id=893262046]
 layout_mode = 1
 anchors_preset = 8
@@ -389,24 +489,6 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "Loading..."
 
-[node name="Utilities" type="Node" parent="." unique_id=1048666211]
-
-[node name="DebugLayer" type="CanvasLayer" parent="Utilities" unique_id=624274306]
-process_mode = 3
-layer = 128
-
-[node name="DebugRoot" type="Control" parent="Utilities/DebugLayer" unique_id=1701487534]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="SaverLoader" type="Node" parent="Utilities" unique_id=1063337963]
-script = ExtResource("9_1flk8")
-
 [connection signal="pressed" from="UIController/PauseLayer/PauseRoot/PauseMenu/VBoxContainer/VBoxContainer/ResumeButton" to="UIController/PauseLayer/PauseRoot" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="UIController/PauseLayer/PauseRoot/PauseMenu/VBoxContainer/VBoxContainer/Back2CheckpointButton" to="UIController/PauseLayer/PauseRoot" method="_on_back_2_checkpoint_button_pressed"]
 [connection signal="pressed" from="UIController/PauseLayer/PauseRoot/PauseMenu/VBoxContainer/VBoxContainer/SettingsButton" to="UIController/PauseLayer/PauseRoot" method="_on_settings_button_pressed"]
@@ -415,6 +497,8 @@ script = ExtResource("9_1flk8")
 [connection signal="pressed" from="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer/VBoxContainer/VBoxContainer/SettingsButton" to="UIController/MainMenuLayer/MainMenuRoot" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="UIController/MainMenuLayer/MainMenuRoot/MainMenu/HBoxContainer/VBoxContainer/VBoxContainer/QuitButton" to="UIController/MainMenuLayer/MainMenuRoot" method="_on_quit_button_pressed"]
 [connection signal="pressed" from="UIController/SettingsMenu2/SettingsMenu/MarginContainer/VBoxContainer/VBoxContainer2/ToRebindMenu" to="UIController/SettingsMenu2/SettingsMenu" method="_on_to_rebind_menu_pressed"]
+[connection signal="pressed" from="UIController/SettingsMenu2/SettingsMenu/MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/FPSButton" to="UIController/SettingsMenu2/SettingsMenu" method="_on_fps_button_pressed"]
+[connection signal="item_selected" from="UIController/SettingsMenu2/SettingsMenu/MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer2/ScreenOptionButton" to="UIController/SettingsMenu2/SettingsMenu" method="_on_screen_option_button_item_selected"]
 [connection signal="pressed" from="UIController/SettingsMenu2/SettingsMenu/DoneButton" to="UIController/PauseLayer/PauseRoot" method="_on_done_button_pressed"]
 [connection signal="pressed" from="UIController/SettingsMenu2/SettingsMenu/RebindMenu/DoneButton2" to="UIController/SettingsMenu2/SettingsMenu" method="_on_done_button_pressed"]
 [connection signal="pressed" from="UIController/SettingsMenu2/SettingsMenu/RebindMenu/ResetKeyButton" to="UIController/SettingsMenu2/SettingsMenu" method="_on_reset_key_button_pressed"]

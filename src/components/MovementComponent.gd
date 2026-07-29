@@ -5,7 +5,7 @@ class_name Movement_Component extends Node
 @onready var wall_jump_timer: Timer = $"../WallJumpTimer"
 
 @export var body: CharacterBody2D
-@export var speed := 500.0
+@export var speed := 600.0
 @export var jump_velo := 1500.0
 @export var wall_push_velo := 950.0
 @export var wall_jump_velo := 1200.0

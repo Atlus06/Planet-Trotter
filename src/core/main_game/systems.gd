@@ -21,4 +21,5 @@ func update_collectables(value: int) -> void:
 	clamp(collectables_collected, 0, max_collectables)
 	#print("Collectables Collected: %d / %d" %[collectables_collected, max_collectables])
 	
-	
+	if collectables_collected == max_collectables:
+		GameSignals.collected_all_collectables.emit(1)

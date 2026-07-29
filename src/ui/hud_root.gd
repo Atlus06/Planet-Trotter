@@ -1,8 +1,13 @@
 extends Control
 
-@onready var health_bar: ProgressBar = $VBoxContainer2/VBoxContainer/HealthBar
-@onready var dash_charge_bar: ProgressBar = $VBoxContainer2/VBoxContainer/DashChargeBar
-@onready var collectable_counter: Label = $VBoxContainer2/CollectableCounter
+@onready var health_bar: ProgressBar = %HealthBar
+@onready var dash_charge_bar: ProgressBar = %DashChargeBar
+@onready var collectable_counter: Label = %CollectableCounter
+
+@onready var fps_label: Label = $MarginContainer/HBoxContainer/VBoxContainer/FPSLabel
+@onready var fps_color_rect: ColorRect = $MarginContainer/ColorRect
+@onready var fps_v_box_container: VBoxContainer = $MarginContainer/HBoxContainer/VBoxContainer
+
 
 @export var duration := 0.75
 var timer := 0.0
@@ -17,7 +22,14 @@ func _ready() -> void:
 	GameSignals.level_max_collectable.connect(set_max_collectables)
 	GameSignals.collectable_collected.connect(collected_collectable)
 	GameSignals.leaving_level.connect(reset_collectables)
+	GameSignals.show_fps.connect(show_frames_per_second)
+	GameSignals.hide_fps.connect(hide_frames_per_second)
 	dash_charge_bar.max_value = duration
+	
+	fps_color_rect.visible = false
+	fps_label.visible = false
+	fps_v_box_container.visible = false
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,6 +38,10 @@ func _process(delta: float) -> void:
 		timer += delta
 		dash_charge_bar.value = timer
 	
+	
+	var current_fps = Engine.get_frames_per_second()
+	fps_label.text = "FPS: " + str(current_fps)
+	#print("FPS: " + str(current_fps))
 
 
 func change_healthbar(health):
@@ -49,3 +65,15 @@ func collected_collectable(value):
 func reset_collectables(_level_path):
 	collectables_collected = 0
 	collectable_counter.text = "Collectables Collected: %d / %d" %[collectables_collected, max_collectables]
+
+func hide_frames_per_second():
+	if fps_color_rect.visible == true:
+		fps_color_rect.visible = false
+		fps_label.visible = false
+		fps_v_box_container.visible = false
+
+func show_frames_per_second():
+		if fps_color_rect.visible == false:
+			fps_color_rect.visible = true
+			fps_label.visible = true
+			fps_v_box_container.visible = true

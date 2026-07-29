@@ -55,6 +55,9 @@ func save_settings():
 		if events.size() >0:
 			config.set_value("Input", action, events)
 	
+	var current_screen_mode = DisplayServer.window_get_mode()
+	config.set_value("Video","window_mode",current_screen_mode)
+	
 	config.save("user://saved_settings.cfg")
 	
 	get_tree().call_group("rebind_buttons", "update_display")
@@ -78,3 +81,7 @@ func load_settings():
 				InputMap.action_add_event(action, single_event)
 	
 	get_tree().call_group("rebind_buttons", "update_display")
+	
+	var saved_screen_mode = config.get_value("Video","window_mode",DisplayServer.WINDOW_MODE_WINDOWED)
+	DisplayServer.window_set_mode(saved_screen_mode)
+	

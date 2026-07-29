@@ -39,7 +39,7 @@ wait_time = 0.1
 wait_time = 0.75
 
 [node name="WallJumpTimer" type="Timer" parent="." unique_id=2025364201]
-wait_time = 0.4
+wait_time = 0.3
 
 [node name="CoyoteTimer" type="Timer" parent="." unique_id=56991568]
 wait_time = 2.0
