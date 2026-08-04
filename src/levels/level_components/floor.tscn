@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cr4mkpaurcyv0"]
 
-[ext_resource type="Texture2D" uid="uid://qdl4mhpxnvab" path="res://Assets/icon.svg" id="1_nvnu3"]
+[ext_resource type="Texture2D" uid="uid://qdl4mhpxnvab" path="res://Assets/General/icon.svg" id="1_nvnu3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d3w87"]
 

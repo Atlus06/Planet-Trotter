@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://wsgum5obh8dd"]
 
 [ext_resource type="Script" uid="uid://ttf7lf6t1odv" path="res://src/levels/level_info/level_3_info.gd" id="1_311ca"]
-[ext_resource type="Texture2D" uid="uid://djkc843pi3x8a" path="res://Assets/meadow_tilemap.png" id="2_53ift"]
+[ext_resource type="Texture2D" uid="uid://djkc843pi3x8a" path="res://Assets/General/meadow_tilemap.png" id="2_53ift"]
 [ext_resource type="PackedScene" uid="uid://doi2h56o46e1t" path="res://src/gameplay/interactables/collectibles.tscn" id="3_ap0ye"]
 [ext_resource type="PackedScene" uid="uid://euo5evp86ctc" path="res://src/levels/level_components/level switcher/level_switcher.tscn" id="4_ksdvf"]
 [ext_resource type="Script" uid="uid://bl3eimwjrku7e" path="res://src/levels/level_components/level switcher/level_switcher_lvl4.gd" id="6_8x25v"]

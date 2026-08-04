@@ -13,14 +13,6 @@ func _ready() -> void:
 	GameSignals.load_settings.connect(load_settings)
 
 
-#temp
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("TempSave"):
-		GameSignals.save_game.emit()
-	elif Input.is_action_just_pressed("TempLoad"):
-		GameSignals.load_game.emit()
-	else:
-		return
 
 
 func save_game():

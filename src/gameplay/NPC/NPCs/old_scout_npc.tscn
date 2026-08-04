@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dog4jk05hitjj"]
+
+[ext_resource type="Script" uid="uid://cvx4k3gtandeh" path="res://src/gameplay/NPC/NPCs/old_scout_npc.gd" id="1_sowvr"]
+[ext_resource type="Texture2D" uid="uid://qdl4mhpxnvab" path="res://Assets/General/icon.svg" id="2_b46bv"]
+[ext_resource type="PackedScene" uid="uid://dslvid5yn0xjx" path="res://src/gameplay/NPC/Dialouge/dialouge.tscn" id="3_b46bv"]
+[ext_resource type="Script" uid="uid://lc8wi1wti8ld" path="res://src/gameplay/NPC/Dialouge/OldScoutDialouge.gd" id="4_vpkdy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf6fs"]
+radius = 60.00833
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpkdy"]
+size = Vector2(477.14304, 1030.0006)
+
+[node name="OldScoutNPC" type="CharacterBody2D" unique_id=1612584835]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_sowvr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=403933494]
+texture = ExtResource("2_b46bv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=862669372]
+shape = SubResource("CircleShape2D_yf6fs")
+
+[node name="ChatDetection" type="Area2D" parent="." unique_id=1514671065]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetection" unique_id=502960194]
+position = Vector2(-279.28564, -134.28569)
+rotation = 1.5707964
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_vpkdy")
+
+[node name="Dialouge" parent="." unique_id=1814457444 instance=ExtResource("3_b46bv")]
+script = ExtResource("4_vpkdy")
+
+[node name="Tutorials" type="Control" parent="." unique_id=1638676914]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="InteractLabel" type="Label" parent="Tutorials" unique_id=1488880593]
+layout_mode = 0
+offset_left = -380.0
+offset_top = -267.14285
+offset_right = 24.0
+offset_bottom = -209.14285
+theme_override_font_sizes/font_size = 45
+text = "Press \"E\" to Interact"
+
+[connection signal="body_entered" from="ChatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="ChatDetection" to="." method="_on_chat_detection_body_exited"]
+
+[editable path="Dialouge"]

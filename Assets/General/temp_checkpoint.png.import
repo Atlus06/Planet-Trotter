@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djkc843pi3x8a"
-path="res://.godot/imported/meadow_tilemap.png-28653e841cd7e40cfcd3860b20e3693e.ctex"
+uid="uid://dytao8khfyuyn"
+path="res://.godot/imported/temp_checkpoint.png-b3e42460e6f36ed06aef1f4f26e7c428.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/meadow_tilemap.png"
-dest_files=["res://.godot/imported/meadow_tilemap.png-28653e841cd7e40cfcd3860b20e3693e.ctex"]
+source_file="res://Assets/General/temp_checkpoint.png"
+dest_files=["res://.godot/imported/temp_checkpoint.png-b3e42460e6f36ed06aef1f4f26e7c428.ctex"]
 
 [params]
 

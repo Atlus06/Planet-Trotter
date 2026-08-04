@@ -1,6 +1,5 @@
 class_name Player extends CharacterBody2D
 
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var input_component: Input_Component = $Input_Component
 @onready var movement_component: Movement_Component = %Movement_Component
 @onready var gravity_component: Gravity_Component = %Gravity_Component
@@ -10,10 +9,6 @@ class_name Player extends CharacterBody2D
 var player_health: int
 var player_position: Vector2
 
-#func _ready() -> void:
-	#collision_shape_2d.disabled = true
-	#await get_tree().create_timer(0.5).timeout
-	#collision_shape_2d.disabled = false
 
 func _physics_process(delta: float) -> void:
 	
@@ -26,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	movement_component.jumping = input_component.jump_pressed
 	movement_component.jump_released = input_component.jump_released
 	movement_component.wants_dash = input_component.dash_pressed
-	#movement_component.crouch_pressed = input_component.wants_crouch
+	movement_component.wants_crouch = input_component.crouch_pressed
 	#movement_component.handle_slide()
 	movement_component.update()
 	
@@ -39,10 +34,7 @@ func _physics_process(delta: float) -> void:
 	camera_component.cam_want_zoom = input_component.cam_zoom
 	camera_component.update()
 	
-	#Temp
-		#Checkpoint
-	if input_component.to_checkpoint_pressed == true:
-		GameSignals.back_to_checkpoint.emit(GameVariables.last_checkpoint_pos)
+	
 	
 	#Player_info
 	player_health = health_component.current_health

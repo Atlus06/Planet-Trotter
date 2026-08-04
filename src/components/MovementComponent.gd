@@ -4,6 +4,9 @@ class_name Movement_Component extends Node
 @onready var coyote_timer: Timer = $"../CoyoteTimer"
 @onready var wall_jump_timer: Timer = $"../WallJumpTimer"
 
+@onready var standing_collision: CollisionShape2D = $"../StandingCollision"
+@onready var crouch_collision: CollisionShape2D = $"../CrouchCollision"
+
 @export var body: CharacterBody2D
 @export var speed := 600.0
 @export var jump_velo := 1500.0
@@ -11,6 +14,7 @@ class_name Movement_Component extends Node
 @export var wall_jump_velo := 1200.0
 @export var dash_velo := -1500.0
 
+var current_speed: float
 var direction: float
 
 var jumping := false
@@ -26,6 +30,8 @@ var is_dashing := false
 var CanDash := true
 
 var wants_crouch := false
+var is_crouching := false
+var crouch_speed = speed / 2
 
 
 func update() -> void:
@@ -38,7 +44,7 @@ func update() -> void:
 		return
 	
 	# movement
-	body.velocity.x = direction * speed
+	body.velocity.x = direction * current_speed
 	
 		# can jump/dash
 	if body.is_on_floor():
@@ -48,6 +54,11 @@ func update() -> void:
 	elif body.is_on_wall():
 		CanJump = true
 		#CanDJump = true
+	
+	if is_crouching:
+		current_speed = crouch_speed
+	else:
+		current_speed = speed
 	
 	
 	
@@ -72,8 +83,9 @@ func update() -> void:
 		if direction != 0 and jumping:
 			wall_jump()
 	
-	
-	#handle_crouch()  --  Make into working crouch
+	#crouch
+	if body.is_on_floor():
+		handle_crouch()
 	
 	
 	body.move_and_slide()
@@ -124,7 +136,16 @@ func wall_jump():
 	
 
 func handle_crouch() -> void:
-	pass
+	if wants_crouch:
+		crouch_collision.disabled = false
+		standing_collision.disabled = true
+		is_crouching = true
+		
+	elif wants_crouch != true:
+		crouch_collision.disabled = true
+		standing_collision.disabled = false
+		is_crouching = false
+	
 
 
 

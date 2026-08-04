@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bm3g6uero38h7" path="res://src/components/MovementComponent.gd" id="1_6t5aa"]
 [ext_resource type="Script" uid="uid://bbwhmafuk1gn0" path="res://src/gameplay/player/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://2kr4botgy2gy" path="res://Assets/Screenshot_2026-06-12_172035.png" id="2_dxsvo"]
+[ext_resource type="Texture2D" uid="uid://2kr4botgy2gy" path="res://Assets/General/Screenshot_2026-06-12_172035.png" id="2_dxsvo"]
 [ext_resource type="Script" uid="uid://c8ar433hsh7mt" path="res://src/components/InputComponent.gd" id="3_6t5aa"]
 [ext_resource type="Script" uid="uid://d1710yeed7ers" path="res://src/components/GravityComponent.gd" id="5_fkybt"]
 [ext_resource type="Script" uid="uid://cvew43pwirayn" path="res://src/components/camera_component.gd" id="6_x3wgy"]
@@ -13,6 +13,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88kja"]
 size = Vector2(330, 614)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdc6l"]
+size = Vector2(321.4286, 335.71426)
+
 [node name="Player" type="CharacterBody2D" unique_id=1113507717 groups=["Player"]]
 scale = Vector2(0.14, 0.14)
 collision_layer = 15
@@ -22,9 +25,14 @@ script = ExtResource("1_cvnsp")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1227844510]
 texture = ExtResource("2_dxsvo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=744712605]
+[node name="StandingCollision" type="CollisionShape2D" parent="." unique_id=744712605]
 position = Vector2(-19, 67)
 shape = SubResource("RectangleShape2D_88kja")
+
+[node name="CrouchCollision" type="CollisionShape2D" parent="." unique_id=35811876]
+position = Vector2(-17.857132, 203.57141)
+shape = SubResource("RectangleShape2D_rdc6l")
+disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=763303121]
 process_mode = 3

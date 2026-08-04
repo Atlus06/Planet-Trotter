@@ -8,7 +8,7 @@ func _ready() -> void:
 	add_states("walk")
 	add_states("jump")
 	add_states("idle")
-	add_states("crouch")
+	add_states("crouching")
 	add_states("dash")
 	add_states("wall_slide")
 	add_states("falling")
@@ -28,7 +28,7 @@ func get_transition(_delta: float):
 			elif movement_component.is_dashing:
 				return states.dash
 			elif movement_component.wants_crouch:
-				return states.crouch
+				return states.crouching
 	
 		states.walk:
 			if movement_component.direction == 0:
@@ -38,7 +38,7 @@ func get_transition(_delta: float):
 			elif movement_component.is_dashing:
 				return states.dash
 			elif movement_component.wants_crouch:
-				return states.crouch
+				return states.crouching
 			elif !movement_component.body.is_on_floor():
 				if movement_component.body.is_on_wall():
 					return states.wall_slide
@@ -53,7 +53,7 @@ func get_transition(_delta: float):
 				elif movement_component.direction != 0:
 					return states.walk
 				elif movement_component.wants_crouch:
-					return states.crouch
+					return states.crouching
 			elif movement_component.body.is_on_wall():
 				return states.wall_slide
 			elif movement_component.is_dashing:
@@ -69,7 +69,7 @@ func get_transition(_delta: float):
 				elif movement_component.direction != 0:
 					return states.walk
 				elif movement_component.wants_crouch:
-					return states.crouch
+					return states.crouching
 			elif movement_component.body.is_on_wall():
 				return states.wall_slide
 			elif movement_component.jumping:
@@ -78,10 +78,11 @@ func get_transition(_delta: float):
 				if movement_component.body.velocity.y > 0:
 					return states.falling
 	
-		states.crouch:
+		states.crouching:
 			if movement_component.direction != 0:
-				return states.walk
-			elif movement_component.jumping:
+				if !movement_component.wants_crouch:
+					return states.walk
+			if movement_component.jumping:
 				return states.jump
 			elif movement_component.is_dashing:
 				return states.dash
@@ -104,7 +105,7 @@ func get_transition(_delta: float):
 				elif movement_component.direction != 0:
 					return states.walk
 				elif movement_component.wants_crouch:
-					return states.crouch
+					return states.crouching
 			if movement_component.body.velocity.y <= 0:
 				if movement_component.jumping:
 					return states.jump
@@ -130,8 +131,8 @@ func enter_state(_new_state, _old_state):
 		states.dash:
 			state_label.text = "dash"
 			#play from animation conponent
-		states.crouch:
-			state_label.text = "crouch"
+		states.crouching:
+			state_label.text = "crouching"
 			#play from animation conponent
 		states.wall_slide:
 			state_label.text = "wall slide"

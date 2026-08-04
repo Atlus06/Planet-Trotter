@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2kr4botgy2gy"
-path="res://.godot/imported/Screenshot_2026-06-12_172035.png-1566146888f629981fcf141aaf58448b.ctex"
+uid="uid://djkc843pi3x8a"
+path="res://.godot/imported/meadow_tilemap.png-8d2c375353ea7a46089504c86227dfa4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Screenshot_2026-06-12_172035.png"
-dest_files=["res://.godot/imported/Screenshot_2026-06-12_172035.png-1566146888f629981fcf141aaf58448b.ctex"]
+source_file="res://Assets/General/meadow_tilemap.png"
+dest_files=["res://.godot/imported/meadow_tilemap.png-8d2c375353ea7a46089504c86227dfa4.ctex"]
 
 [params]
 

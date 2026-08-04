@@ -26,18 +26,21 @@ func load_start():
 	
 	GameSignals.end_transition.emit()
 
-func switch_level(new_level_path: String):
+func switch_level(new_level_path):
 	#print("Changed level")
-	GameSignals.start_transition.emit()
-	
-	if LevelRoot.get_child_count() > 0:
-		var current_level = LevelRoot.get_child(0)
-		current_level.queue_free()
-	
-	var level_scene = load(new_level_path)
-	if level_scene:
-		var new_level_instance = level_scene.instantiate()
-		LevelRoot.call_deferred("add_child", new_level_instance)
+	if new_level_path == null:
+		return
+	else:
+		GameSignals.start_transition.emit()
+		
+		if LevelRoot.get_child_count() > 0:
+			var current_level = LevelRoot.get_child(0)
+			current_level.queue_free()
+		
+		var level_scene = load(new_level_path)
+		if level_scene:
+			var new_level_instance = level_scene.instantiate()
+			LevelRoot.call_deferred("add_child", new_level_instance)
 	
 	
 	

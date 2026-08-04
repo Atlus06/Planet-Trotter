@@ -1,12 +1,13 @@
 [gd_scene format=4 uid="uid://b0vf38lbmw1bs"]
 
 [ext_resource type="Script" uid="uid://c733l6mrrtssm" path="res://src/levels/level_info/level_5_info.gd" id="1_y6fb4"]
-[ext_resource type="Texture2D" uid="uid://djkc843pi3x8a" path="res://Assets/meadow_tilemap.png" id="2_i1v3h"]
+[ext_resource type="Texture2D" uid="uid://djkc843pi3x8a" path="res://Assets/General/meadow_tilemap.png" id="2_i1v3h"]
 [ext_resource type="PackedScene" uid="uid://doi2h56o46e1t" path="res://src/gameplay/interactables/collectibles.tscn" id="3_bwxfc"]
 [ext_resource type="PackedScene" uid="uid://euo5evp86ctc" path="res://src/levels/level_components/level switcher/level_switcher.tscn" id="4_tclns"]
 [ext_resource type="Texture2D" uid="uid://c8i6rsa7p2dg2" path="res://Assets/Level Designs/gasmap.png" id="6_i1v3h"]
 [ext_resource type="PackedScene" uid="uid://c22370y85xjbx" path="res://src/levels/level_components/checkpoint/checkpoint.tscn" id="6_ror3m"]
 [ext_resource type="Script" uid="uid://d1lh5vem7qgqx" path="res://src/levels/level_components/level switcher/level_switcher_back2start.gd" id="6_wb3y1"]
+[ext_resource type="PackedScene" uid="uid://dog4jk05hitjj" path="res://src/gameplay/NPC/NPCs/old_scout_npc.tscn" id="7_bwxfc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ror3m"]
 texture = ExtResource("2_i1v3h")
@@ -524,6 +525,11 @@ position = Vector2(-1746, -2032)
 
 [node name="Checkpoint7" parent="Objects/Checkpoint" unique_id=20725448 instance=ExtResource("6_ror3m")]
 position = Vector2(138, 1312)
+
+[node name="NPCs" type="Node" parent="." unique_id=618738430]
+
+[node name="OldScoutNPC" parent="NPCs" unique_id=1612584835 instance=ExtResource("7_bwxfc")]
+position = Vector2(459, -2077)
 
 [node name="Map-temp" type="Node" parent="." unique_id=622612950]
 

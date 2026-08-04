@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dslvid5yn0xjx"]
+
+[node name="Dialouge" type="Control" unique_id=1814457444]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -431.00003
+offset_top = -430.99997
+offset_right = 18.99997
+offset_bottom = -180.99997
+scale = Vector2(1.25, 1.25)
+
+[node name="Border" type="ColorRect" parent="." unique_id=1065452958]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=85641086]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Background" type="ColorRect" parent="MarginContainer" unique_id=543918988]
+layout_mode = 2
+color = Color(0.53593135, 0.19184738, 0.28460944, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Background" unique_id=613150307]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/Background/VBoxContainer" unique_id=150220415]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Name:"
+
+[node name="Text" type="RichTextLabel" parent="MarginContainer/Background/VBoxContainer" unique_id=1028190224]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 30
+text = "Yap Yap Yap Yap Yap Yap Yap Yap Yap Yap Yap Yap Yap Yap Yap Yap Yap Yap Yap Yap Yap "
+scroll_following_visible_characters = true

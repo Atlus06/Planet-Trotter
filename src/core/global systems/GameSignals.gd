@@ -5,7 +5,7 @@ class_name Game_Signals extends Node
 signal start_game
 
 	#Moving btwn levels
-signal change_level
+signal change_level(next_level_path)
 signal leaving_level(next_level_path)
 
 	#important misc stuff

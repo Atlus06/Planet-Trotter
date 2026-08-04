@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c22370y85xjbx"]
 
 [ext_resource type="Script" uid="uid://dq6yotiqd2tv8" path="res://src/levels/level_components/checkpoint/checkpoint.gd" id="1_xh0j0"]
-[ext_resource type="Texture2D" uid="uid://dytao8khfyuyn" path="res://Assets/temp_checkpoint.png" id="2_fs3m6"]
+[ext_resource type="Texture2D" uid="uid://dytao8khfyuyn" path="res://Assets/General/temp_checkpoint.png" id="2_fs3m6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smyxk"]
 radius = 38.0

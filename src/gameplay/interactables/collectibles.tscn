@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://doi2h56o46e1t"]
 
-[ext_resource type="Texture2D" uid="uid://cr18s8eg24qew" path="res://Assets/gear.png" id="1_wa5cq"]
+[ext_resource type="Texture2D" uid="uid://cr18s8eg24qew" path="res://Assets/General/gear.png" id="1_wa5cq"]
 [ext_resource type="Script" uid="uid://1m6kv0ita3is" path="res://src/components/collectable_component.gd" id="2_gb2wt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gb2wt"]

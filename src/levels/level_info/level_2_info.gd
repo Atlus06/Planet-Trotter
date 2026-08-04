@@ -5,8 +5,11 @@ class_name level_2_info extends Node
 @export var max_collectable_number := 19
 @export var current_level_number: int = 2
 @export var player_spawn_pos: Vector2
+var next_level: String = "res://src/levels/levels/level_3_test.tscn"
 
 func _ready() -> void:
+	GameSignals.leaving_level.connect(to_next_level)
+	
 	player_spawn_pos = player_spawn.global_position
 	GameVariables.last_checkpoint_pos = player_spawn_pos
 	
@@ -15,3 +18,7 @@ func _ready() -> void:
 	
 	#print("Level 1: " + str(max_collectable_number))
 	#print(player_spawn_pos)
+
+
+func to_next_level():
+	GameSignals.leaving_level.emit(next_level)
