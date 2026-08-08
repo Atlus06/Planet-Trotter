@@ -57,16 +57,16 @@ unique_name_in_owner = true
 script = ExtResource("3_6t5aa")
 metadata/_custom_type_script = "uid://c8ar433hsh7mt"
 
+[node name="Gravity_Component" type="Node" parent="." unique_id=1236906400]
+unique_name_in_owner = true
+script = ExtResource("5_fkybt")
+metadata/_custom_type_script = "uid://d1710yeed7ers"
+
 [node name="Movement_Component" type="Node" parent="." unique_id=2082750859 node_paths=PackedStringArray("body")]
 unique_name_in_owner = true
 script = ExtResource("1_6t5aa")
 body = NodePath("..")
 metadata/_custom_type_script = "uid://bm3g6uero38h7"
-
-[node name="Gravity_Component" type="Node" parent="." unique_id=1236906400]
-unique_name_in_owner = true
-script = ExtResource("5_fkybt")
-metadata/_custom_type_script = "uid://d1710yeed7ers"
 
 [node name="Camera_Component" type="Node" parent="." unique_id=208795687 node_paths=PackedStringArray("camera")]
 unique_name_in_owner = true

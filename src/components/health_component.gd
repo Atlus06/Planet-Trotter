@@ -1,5 +1,7 @@
 class_name Health_Component extends Node
 
+var debug_mode: bool
+
 var max_health := 30
 var current_health: int
 

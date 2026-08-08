@@ -10,6 +10,7 @@ signal leaving_level(next_level_path)
 
 	#important misc stuff
 signal show_main_menu
+signal toggle_debug(mode)
 
 	#Saving & Loading
 signal save_game

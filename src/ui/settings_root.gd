@@ -3,6 +3,7 @@ extends Control
 @onready var rebind_menu: Control = $RebindMenu
 @onready var fps_button: Button = $MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/FPSButton
 @onready var screen_option_button: OptionButton = $MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer2/ScreenOptionButton
+@onready var debug_button: Button = $MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer3/DebugButton
 
 
 # Called when the node enters the scene tree for the first time.
@@ -47,11 +48,11 @@ func _on_fps_button_pressed() -> void:
 	if fps_button.button_pressed:
 		fps_button.text = "ON"
 		GameSignals.show_fps.emit()
-		print("show fps")
+		#print("show fps")
 	else:
 		fps_button.text = "OFF"
 		GameSignals.hide_fps.emit()
-		print("hide fps")
+		#print("hide fps")
 
 
 func _on_screen_option_button_item_selected(index: int) -> void:
@@ -63,4 +64,15 @@ func _on_screen_option_button_item_selected(index: int) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	
 	#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MINIMIZED)
+	
+
+
+func _on_dubug_button_toggled(toggled_on: bool) -> void:
+	GameSignals.toggle_debug.emit(toggled_on)
+	
+	#print(toggled_on)
+	if toggled_on == true:
+		debug_button.text = "ON"
+	elif toggled_on == false:
+		debug_button.text = "OFF"
 	

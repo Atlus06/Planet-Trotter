@@ -14,6 +14,10 @@ class_name Movement_Component extends Node
 @export var wall_jump_velo := 1200.0
 @export var dash_velo := -1500.0
 
+var debug_mode: bool = false
+var debug_move_dir := Vector2.ZERO
+@export var debug_speed := 1000.0
+
 var current_speed: float
 var direction: float
 
@@ -43,49 +47,62 @@ func update() -> void:
 		body.move_and_slide()
 		return
 	
-	# movement
-	body.velocity.x = direction * current_speed
-	
-		# can jump/dash
-	if body.is_on_floor():
-		CanJump = true
-		CanDJump = true
-		CanDash = true
-	elif body.is_on_wall():
-		CanJump = true
-		#CanDJump = true
-	
-	if is_crouching:
-		current_speed = crouch_speed
-	else:
-		current_speed = speed
-	
-	
-	
-	#wall clinging
-	if body.is_on_wall() and not body.is_on_floor():
-		if direction != 0:
-			body.velocity.y = min(body.velocity.y, 125)
-	
-	#jump
-	if jumping:
-		jump()
-	elif jump_released:
-		if CanDJump and body.velocity.y < -100:
-			body.velocity.y = 10
-	
-	#dash
-	if wants_dash and CanDash == true:
-		dash()
-	
-	#wall jump
-	if body.is_on_wall() and not body.is_on_floor():
-		if direction != 0 and jumping:
-			wall_jump()
-	
-	#crouch
-	if body.is_on_floor():
-		handle_crouch()
+	if debug_mode == false:
+		#reset collisions
+		standing_collision.disabled = false
+		
+		# movement
+		body.velocity.x = direction * current_speed
+		
+			# can jump/dash
+		if body.is_on_floor():
+			CanJump = true
+			CanDJump = true
+			CanDash = true
+		elif body.is_on_wall():
+			CanJump = true
+			#CanDJump = true
+		
+		if is_crouching:
+			current_speed = crouch_speed
+		else:
+			current_speed = speed
+		
+		
+		
+		#wall clinging
+		if body.is_on_wall() and not body.is_on_floor():
+			if direction != 0:
+				body.velocity.y = min(body.velocity.y, 125)
+		
+		#jump
+		if jumping:
+			jump()
+		elif jump_released:
+			if CanDJump and body.velocity.y < -100:
+				body.velocity.y = 10
+		
+		#dash
+		if wants_dash and CanDash == true:
+			dash()
+		
+		#wall jump
+		if body.is_on_wall() and not body.is_on_floor():
+			if direction != 0 and jumping:
+				wall_jump()
+		
+		#crouch
+		if body.is_on_floor():
+			handle_crouch()
+		
+	if debug_mode == true:
+		#turn off collisions
+		standing_collision.disabled = true
+		crouch_collision.disabled = true
+		
+		#fly around
+		body.velocity = debug_move_dir * debug_speed
+		
 	
 	
 	body.move_and_slide()
